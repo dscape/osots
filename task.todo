@@ -1,0 +1,24 @@
+✓ Secure Authentication System
+✓ Registration System
+✓ Basic Webdesign using standards (XHTML & CSS)
+✓ First Page and Navigation
+✓ User Database Relational Table
+✓ Rights and Roles Database Relational Table. Different levels of authorization implementation.
+✓ Questions Database Hibrid Table
+✓ User interfaces for User (edit, view, change password)
+✓ Email validation on Registration System
+✓ Users can reset their password
+✓ Admin interfaces for users
+✓ It is possible to disable users if needed
+✓ Change user roles and displaying it in their profile
+✓ Only users can edit own profile
+✓ Admin interfaces for questions (new, edit, delete, show)
+✓ Only accept valid XML documents
+✓ table RESULTS
+- new table called "TESTS" where I'd be storing all the questions for 3 variations of the fixed test (or more).  The system should randomly choose between these 3 test variations. Will need a joint table for tests_questions
+- Implementation of the sequential system for the exam
+- 60 minutes timer on the test
+- User can only take one exam every seven days and only up to 3 times.
+- Integration with IBM_DB
+- Print diploma pdf-format
+

@@ -1,0 +1,115 @@
+/* Stylesheet generated from TextMate theme
+ *
+ * iPlastic
+ *
+ */
+.iplastic_div {
+	border: 1px solid #89f;
+	padding:5px;
+	color: #89f;
+	background: #fff;
+}
+
+.iplastic_div h5 {
+	text-align: right;
+	color: #89f;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.iplastic {
+	text-align:left;
+	border: 1px solid #89f;
+	margin: 0;
+	padding: 0 0 0 2px;
+	font-family: Monaco, Courier, monospace;
+	font-size: 11px;
+	line-height: 1.3em;
+	word-wrap: break-word;
+	white-space: pre;
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -o-pre-wrap;
+	color: #000;
+	border:none;
+
+}
+
+.iplastic .linenum {
+	width: 75px;
+	padding: 0.1em 1em 0.2em 0;
+	color: #ccc;
+}
+
+.iplastic ::selection {	background-color: #BAD6FD; }
+
+/* String */
+.iplastic .string {	color: #0a5; }
+
+/* Number */
+.iplastic .numeric { color: #0066FF; }
+
+/* Regular expression */
+.iplastic .string_regexp { color: #FF0080; }
+
+/* Keyword */
+.iplastic .keyword { color: #0000FF; }
+
+/* Identifier */
+.iplastic .language {	color: #9700CC; }
+
+/* Exception */
+.iplastic .exception { color: #990000; }
+
+/* Function name */
+.iplastic .function { color: #FF8000; }
+
+/* Type name */
+.iplastic .type {
+  text-decoration: underline;
+	font-weight: bold;
+}
+
+/* Arguments */
+.iplastic .arguments { font-style: italic; }
+
+/* Comment */
+.iplastic .comment {
+	color: #0066FF;
+	font-style: italic;
+}
+
+/* Invalid */
+.iplastic .invalid {
+	color: #FF0000;
+	background-color: rgba(231, 26, 17, 0.30);
+}
+
+
+/* Embedded source */
+.iplastic .source {
+	color: #000000;
+	background-color: rgba(250, 250, 250, 0.99);
+}
+
+/* Tag */
+.iplastic .tag { color: #0033CC; }
+
+/* Constant */
+.iplastic .constant { color: #6782D3; }
+
+/* Attribute */
+.iplastic .attribute { color: #6782D3; font-style: italic; }
+
+/* Support */
+.iplastic .support {
+	color: #3333FF;
+	font-weight: bold;
+}
+
+/* Storage */
+.iplastic .storage { font-weight: bold; }
+
+
+/* XML Declaration */
+.iplastic .txt { color: #333333; }

@@ -1,0 +1,18 @@
+<dl>
+  <%= "<dd>Username</dd><dt><em>#{h user.login}</em></dt>" unless user.login.blank? %>
+  <%= "<dd>Email</dd><dt><em>#{h user.email.gsub('@',' [at] ').gsub('.',' [dot] ')}</em></dt>" unless user.email.blank? %>
+  <%= "<dd>Name</dd><dt><em>#{h user.name}</em></dt>" unless user.name.blank? %>
+  <%= "<dd>Homepage</dd><dt><em>#{h user.homepage}</em></dt>" unless user.homepage.blank? %>
+ <%= "<dd>Last seen</dd><dt><em>#{timeago user.last_login_at}</em></dt>" unless user.last_login_at.nil? %>
+ <dd>Member since</dd><dt><em><%= timeago user.created_at %></em></dt>
+</dl>
+<% unless user.roles.blank? %>
+<div id="groups">
+<h2>Member of</h2>
+  <dl>
+    <% for role in user.roles %>
+    <dt class="<%= role.name %>"><%= role.name %></dt>
+    <% end %>
+  </dl>
+</div>
+<% end %>

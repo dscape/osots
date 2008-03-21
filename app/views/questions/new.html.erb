@@ -1,0 +1,88 @@
+<% title 'Create a new question' %>
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'forms' %>
+  <%= stylesheet_link_tag 'textmate' %>
+  <%= stylesheet_link_tag 'admin' %>
+<% end %>
+
+<% content_for :subcol do %>
+    <h2>Help</h2>
+    <p>Please provide a <em>valid xml document</em>.</p>
+    <p>Valid <em>identifiers for difficulty</em> are: Very Easy, Easy, Intermediate, Difficult.</p>
+    <p>If you can't fix an error please inform our <%= link_to 'tech support', '#' %> to get help.</p>
+<% end %>
+
+<% # START: content %>
+
+  <h2>Create a new question</h2>
+  
+  <%= error_messages_for :question %>
+  <% form_for :question, :url => questions_path do |f| -%>
+  <%= render :partial => 'question_fields', :locals => { :f => f } %>
+    <div id="create_question">
+      <%= f.submit "Create Question" %> 
+    </div>
+  <% end %>
+
+<%#= #uncomment to render all the types
+     make_xml_code_in_xhtml([
+                             [{"meta" => 'colors_example'}],
+                             [{"comment" => "<!-- This is & \"comment\' -->"}, {"txt" => " txt"}],
+                             [{"string"=>"string"}],
+                             [{"numeric"=>"numeric"}],
+                             [{"string_regexp"=>"string_regexp"}],
+                             [{"keyword"=>"keyword"}],
+                             [{"language"=>"language"}],
+                             [{"exception"=>"exception"}],
+                             [{"function"=>"function"}],
+                             [{"type"=>"type"}],
+                             [{"arguments"=>"arguments"}],
+                             [{"invalid"=>"invalid"}],
+                             [{"source"=>"source"}],
+                             [{"support"=>"support"}],
+                             [{"tag"=>"tag"}],
+                             [{"constant"=>"constant"}],
+                             [{"storage"=>"storage"}],
+                             [{"i_dont_exist" => "i_dont_exist"}]
+                            ]) %>
+<div id="admin">
+<%= make_xml_code_in_xhtml [
+                            [{"meta" => 'question_sample'}],
+                            [{"keyword" => "<question"}, {" attribute" => "difficulty"}, {"keyword" => "="}, {"string" => "\"Very Easy\""} ],
+                            [{"attribute" => "         topic"},  {"keyword" => "="}, {"string" => "\"DB2 versions\""}],
+                            [{"attribute" => "         language"},  {"keyword" => "="}, {"string" => "\"en-US\""}, {"keyword" => ">"}],
+                            [{"keyword" =>   "  <author>"}],
+                            [{"keyword" =>   "    <user_ID>"}],
+                            [{"txt" =>       "      raul"}],
+                            [{"keyword" =>   "    </user_ID>"}],
+                            [{"keyword" =>   "  </author>"}],
+                            [{"keyword" =>   "  <minutes_allocated>"}],
+                            [{"txt" =>       "    2"}],
+                            [{"keyword" =>   "  </minutes_allocated>"}],
+                            [{"keyword" =>   "  <question_text>"}],
+                            [{"txt" =>       "    What is DB2 Express-C?"}],
+                            [{"keyword" =>   "  </question_text>"}],
+                            [{"keyword" =>   "  <answer>"}],
+                            [{"keyword" =>   "    <choiceA>"}],
+                            [{"txt" =>       "      A Java client for the DB2 server"}],
+                            [{"keyword" =>   "    </choiceA>"}],
+                            [{"keyword" =>   "    <choiceB"}, {"attribute" => "type"},  {"keyword" => "="}, {"string" => "\"correct\""}, {"keyword" => ">"}],
+                            [{"txt" =>       "      A member of the DB2 family of powerful"}],
+                            [{"txt" =>       "      data server software"}],
+                            [{"keyword" =>   "    </choiceB>"}],
+                            [{"keyword" =>   "    <choiceC>"}],
+                            [{"txt" =>       "      A web server"}],
+                            [{"keyword" =>   "    </choiceC>"}],
+                            [{"keyword" =>   "    <choiceD>"}],
+                            [{"txt" =>       "      An application server1 and 3"}],
+                            [{"keyword" =>   "    </choiceD>"}],
+                            [{"keyword" =>   "    <choiceE>"}],
+                            [{"txt" =>       "      A and B"}],
+                            [{"keyword" =>   "    </choiceE>"}],
+                            [{"keyword" =>   "  </answer>"}],
+                            [{"keyword" =>   "</question>"}],
+                           ]
+%>
+</div>
+<% # END: content %>

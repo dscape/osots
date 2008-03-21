@@ -1,0 +1,21 @@
+<% title 'Edit this question' %>
+
+<% content_for :subcol do %>
+    <h2>Help</h2>
+    <p>Please provide a <em>valid xml document</em>.</p>
+    <p>Valid <em>identifiers for difficulty</em> are: Very Easy, Easy, Intermediate, Difficult.</p>
+    <p>If you can't fix an error please inform our <%= link_to 'tech support', '#' %> to get help.</p>
+<% end %>
+
+<% # START: content %>
+<h2>Edit question</h2>
+
+<%= error_messages_for :question %>
+
+<% form_for(@question) do |f| -%>
+<%= render :partial => 'question_fields', :locals => { :f => f } %>
+  <div id="edit_question">
+    <%= f.submit "Edit Question" %> 
+  </div>
+<% end %>
+<% # END: content %>

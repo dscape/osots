@@ -1,0 +1,277 @@
+/****************** 
+ * XHTML STANDARD *
+ ******************/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #000;
+  border-top: 4px solid #78f;
+  background: #fff;
+  font: 62.5% Verdana, 'Helvetica Neue', Arial, sans-serif;
+}
+
+p, form, h1, h2, h3, h4, h5, h6 { font-weight: normal; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Verdana, 'Helvetica Neue', Arial, sans-serif;
+  margin-bottom: .6em;
+  color: #0a5;
+}
+
+em { color: #0a5; }
+
+p { margin-bottom: 1.5em; }
+
+h1 { font-size: 200%; }
+
+h2 { font-size: 160%; }
+
+h3 { font-size: 150%; }
+
+h4 { font-size: 120%; }
+
+h5 { font-size: 110%; }
+
+h6 { font-size: 105%; }
+
+input, textarea {
+  font-family: Verdana, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 100%;
+}
+
+a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #0a5;
+}
+
+a:hover { text-decoration: underline; }
+
+a img {  border: none }
+
+hr {
+  border: 1px solid #78f;
+  margin: 10px 0px 10px 0px;
+}
+
+dd {
+  margin: 0px;
+  line-height: 1em;
+  font-size: 1.1em;
+  text-transform: capitalize;
+  font-family: 'HelveticaNeue-Light','Helvetica Neue','Helvetica Neue Light','Arial', Verdana, sans-serif;
+}
+
+dt {
+  font-size: .8em;
+  border-style: dotted;
+  border-width: 0px 0px 1px 0px;
+  border-color: #ddd;
+  text-transform: lowercase;
+  margin-bottom: 5px;
+}
+
+/**************
+ * APP LAYOUT *
+ **************/
+#wrapper {
+  font-size: 1.2em;
+  position: relative;
+  margin: auto;
+  width: 750px;
+}
+
+  /* HEADER */
+  #header {
+    padding: 16px;
+  }
+  
+  /**************
+   * NAVIGATION *
+   **************/
+  #nav {
+    background: #78f url('../images/ibm-logo.png') no-repeat center right;
+    margin-bottom: 1em;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    border-color: #89f #89f #89f #89f;
+    height: 30px;
+  }
+
+    /* NESTED ELEMS */
+	  #nav ul {
+	    margin: 0;
+	    padding: 0;
+	    padding-left: 20px;
+	  }
+    
+	  #nav li {
+	    float: left;
+	    text-align: center;
+	    padding: 8px 10px;
+	    display: inline;
+	    border-right: solid 1px #89f;
+	  }
+    
+	  #nav li a {
+	    color: #fff;
+	    text-transform: lowercase;
+	    text-decoration: none;
+	  }
+    
+	  #nav li a:hover {
+	    text-decoration: underline;
+	  }
+  
+  /* MAIN CONTENT */
+  #content {
+    position: relative;
+    background-color: #ccc;
+    clear: both;
+  }
+  
+    #maincol, #subcol {
+      padding: 20px;
+      overflow: hidden;
+      margin-bottom: 1em;
+    }
+    
+    #maincol {
+      float: left;
+      padding: 12px 16px;
+      background: #eee;
+      right: 0;
+      width: 460px;
+    }
+    
+    #subcol {
+      background: #fff;
+      float: left;
+      width: 200px;
+      padding: 12px 16px;
+      margin-right: 20px;
+      border-style: solid;
+      border-width: 1px 1px 1px 4px;
+      border-color: #89f #89f #89f #89f;
+    }
+    
+    #subcol .subnav li {
+      float: right;
+      text-align: center;
+      padding: 5px 5px;
+      display: inline;
+    }
+  
+  /* FOOTER */
+  #footer {
+    clear: both;
+  }
+
+
+/***************************
+ * CSS TRICKERY (xX)--´,-- *
+ ***************************/
+
+/* Compliant browsers */
+#maincol:after,
+#subcol:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+/* IE 5/6 */
+* html #maincol,
+* html #subcol {
+  height: 1%;
+}
+
+/* IE7 */
+#maincol,
+#subcol {
+  min-height: 1px;
+}
+
+/*****************
+ * RUBY ON RAILS *
+ *****************/
+
+  /*********
+   * FLASH *
+   *********/
+  #error, #notice, #ok, #warning {
+    margin-bottom: 1em;
+    clear: both;
+  }
+  
+  #error {
+    background: #fcc url('../images/exclamation.png') no-repeat center left;
+    font-size: 11px;
+    color: #c66;
+    border: solid 1px #c66;
+    padding: 5px 20px;
+  }
+
+  #ok {
+    background: #cfc url('../images/accept.png') no-repeat center left;
+    font-size: 11px;
+    color: #6c6;
+    border: solid 1px #6c6;
+    padding: 5px 20px;
+  }
+
+  #warning {
+    background: #ff9 url('../images/warning.png') no-repeat center left;
+    font-size: 11px;
+    color: #f93;
+    border: solid 1px #f93;
+    padding: 5px 20px;
+  }
+  
+  #notice {
+    background: #89f url('../images/information.png') no-repeat center left;
+    font-size: 11px;
+    color: #fff;
+    border: solid 1px #78f;
+    padding: 5px 20px;
+  }
+  
+  /*********************
+   * VALIDATION ERRORS *
+   *********************/
+  #errorExplanation {
+  width: 400px;
+  margin: auto;
+  border: 1px solid #c66;
+  padding: 0px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #fcc;
+  }
+  
+  #errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: 0px;
+  background-color: #c66;
+  color: #fff;
+  }
+  #errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 8px;
+  }
+  #errorExplanation ul {
+  margin: 2px 24px;
+  }
+  #errorExplanation ul li {
+  font-size: 12px;
+  list-style: disc;
+  }

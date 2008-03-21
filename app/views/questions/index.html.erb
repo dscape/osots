@@ -1,0 +1,90 @@
+<% title 'Prepare yourself for the certification exam' %>
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'forms' %>
+  <%= stylesheet_link_tag 'admin' if authorized? %>
+<% end %>
+
+<% content_for :subcol do %>
+  <% if logged_in? %>
+    <h2>Ready for the test?</h2>
+    <p>
+      Welcome back <em><%= current_user.name.blank? ? current_user.login : current_user.name %></em>
+    </p>
+    <%= render :partial => 'shared/user_navigation'%>
+  <% else %>
+    <h2>Please sign in!</h2>
+    <p>We need you to authenticate yourself so that you can get your certificate!</p>
+    
+    <% form_tag session_path do %> 
+      <div id="login" class="field">
+        <label class="login" for="login">&nbsp;Username</label><br/>
+        <%= text_field_tag "login", nil, {:size => 24} %>
+      </div>
+      <div id="password" class="field">
+        <label class="password" for="password">&nbsp;Password</label><br/>
+        <%= password_field_tag "password", nil, {:size => 24} %>
+      </div>
+      <div id="remember_me" class="field">
+        <label class="remember_me" for="remember_me">Remember me? </label>
+        <%= check_box_tag 'remember_me' %>
+      </div>
+      <div id="sign_in">
+        <%= submit_tag "Sign in" %> 
+      </div>
+    <% end %>
+    <small><%= link_to 'Register now!', new_user_path %></small>
+    <p>
+      <small> <%= link_to 'Lost your password?', recover_password_users_path %></small>
+    </p>
+  
+  <% end %>
+<% end %>
+
+<% # START: content %>
+  <h2>Ready to test your knowledge?</h2>
+  <p>In this exam you can test your DB2 pureXML knowledge while learning some new things about DB2. You can also get ideas what to try and test in DB2 to deepen your understanding of the new XML support.</p>
+  <p>This exam contains questions many of which we have heard from customers over and over again. Some questions are easy, some are not so easy, and a few are tricky. There is a 60 minutes time limit to answer all questions, and we encourage you to use the DB2 documentation and DB2 9.5 itself to find the answers. Try out queries and indexes, look around the catalog tables in DB2, whatever it takes to answer the questions.</p>
+  <p align="right">
+    <%= link_to 'Take the exam', "#" if logged_in? %>
+  </p>
+<% if authorized? %>
+  <div id="admin">
+    <h2>Manage questions</h2>
+    <table class="listing" id="questions_table">
+      <caption>Questions</caption>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Document</th>
+            <th>Operations</th>
+          </tr>
+       </thead>
+       <tbody class="content">
+       <% i=0 %>
+       <% for question in @questions %>
+         <% i+=1 %>
+         <tr<%= " class=\"gray\"" if(i%2 == 0) %>>
+           <td><%= h question.id %></td>
+           <td><%= h(question.document.split[0..10].join(' ')) + '...' %></td>
+           <td>
+             <%= link_to image_tag('magnifier.png'), question %>
+             <%= link_to image_tag('edit.png'), edit_question_path(question) %>
+             <%= link_to image_tag('delete.png'), question, :confirm => 'Are you sure?', :method => :delete %>
+         </tr>
+       <% end %>
+       </tbody>
+       <tbody class="footer">
+         <tr>
+           <td colspan="3">This table contains <%= pluralize(@questions.size, 'question') %></td>
+         </tr>
+       </tbody>
+    </table>
+    <br/>
+    <div valign="middle">
+      <%= link_to image_tag('add.png'), new_question_path %> <%= link_to 'New question', new_question_path %>
+    </div>
+  </div>
+<% end %>
+
+<% # END: content %>

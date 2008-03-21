@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="2"
+   name=""
+   committed-date="2007-04-12T01:40:29.547677Z"
+   url="http://validates-xml.googlecode.com/svn/trunk"
+   last-author="johnwulff"
+   kind="dir"
+   uuid="94336e66-e02d-0410-a874-59fdd09990fd"
+   repos="http://validates-xml.googlecode.com/svn"
+   revision="2"/>
+<entry
+   name="test"
+   kind="dir"/>
+<entry
+   committed-rev="2"
+   name="Rakefile"
+   text-time="2008-03-18T22:37:43.000000Z"
+   committed-date="2007-04-12T01:40:29.547677Z"
+   checksum="43e7c021771bfec3c22e6bcb1906bfa1"
+   last-author="johnwulff"
+   kind="file"
+   prop-time="2008-03-18T22:37:43.000000Z"/>
+<entry
+   committed-rev="2"
+   name="init.rb"
+   text-time="2008-03-18T22:37:43.000000Z"
+   committed-date="2007-04-12T01:40:29.547677Z"
+   checksum="c7ff3dc8622a59320477f7d82afa78c7"
+   last-author="johnwulff"
+   kind="file"
+   prop-time="2008-03-18T22:37:43.000000Z"/>
+<entry
+   name="lib"
+   kind="dir"/>
+<entry
+   committed-rev="2"
+   name="README"
+   text-time="2008-03-18T22:37:43.000000Z"
+   committed-date="2007-04-12T01:40:29.547677Z"
+   checksum="4779b68e7d22428508509b52b91b604b"
+   last-author="johnwulff"
+   kind="file"
+   prop-time="2008-03-18T22:37:43.000000Z"/>
+</wc-entries>

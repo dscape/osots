@@ -1,0 +1,50 @@
+/************************
+ * FORMS XHTML ELEMENTS *
+ ************************/
+label {
+  padding-left: 20px;
+  text-transform: uppercase;
+  color: #0a5;
+  line-height: 2em;
+}
+
+/***********
+ * CLASSES *
+ ***********/
+.field { margin-bottom: 1em; }
+
+  /*********
+   * ICONS *
+   *********/
+  .login { background: url('../images/user.png') no-repeat top left; }
+  
+  .password { background: url('../images/key.png') no-repeat top left; }
+  
+  .old_password { background: url('../images/key_delete.png') no-repeat top left; }
+  
+  .remember_me { background: url('../images/lightbulb.png') no-repeat top left; }
+  
+  .email { background: url('../images/email.png') no-repeat top left; }
+  
+  .password_confirmation { background: url('../images/key_go.png') no-repeat top left; }
+  
+  .name { background: url('../images/vcard.png') no-repeat top left; }
+  
+  .homepage { background: url('../images/world.png') no-repeat top left; }
+  
+  .about { background: url('../images/asterisk_orange.png') no-repeat top left; }
+
+  .document { background: url('../images/page_code.png') no-repeat top left; }
+
+/******************
+ * SPECIFIC ELEMS *
+ ******************/
+#sign_in {
+  padding: 1em;
+  text-align: right;
+}
+
+#change_password {
+  border-top: 1px dashed #ccc;
+  padding-top: 10px;
+}

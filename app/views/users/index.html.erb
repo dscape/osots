@@ -1,0 +1,79 @@
+<% title 'Welcome to the students lounge!' %>
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'forms' %>
+  <%= stylesheet_link_tag 'admin' if authorized? %>
+<% end %>
+
+<% content_for :subcol do %>
+  <% unless logged_in? %>
+    <h2>Featured Student</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+    <p>
+      <%= link_to 'Sign in?', root_path %>
+    </p>
+  <% else %>
+    <h2>My Profile</h2>
+    <%= render :partial => 'shared/user_profile', :locals => { :user => current_user } %>
+    <%= render :partial => 'shared/user_navigation'%>
+  <% end %>
+<% end %>
+
+<% # START: content %>
+<h2>Students Lounge</h2>
+<p>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+<% if authorized? %>
+<div id="admin">
+  <h2>Welcome home root!</h2>
+  <table class="listing" id="user_table">
+    <caption>Users</caption>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Login</th>
+        <th>Operations</th>
+        <th>Advanced</th>
+      </tr>
+    </thead>
+    <tbody class="content">
+    <% i=0 %>
+    <% for user in @users %>
+      <% i+=1 %>
+      <tr<%= " class=\"gray\"" if(i%2 == 0) %>>
+        <td><%= user.id %></td>
+        <td><%=h user.login %></td>
+        <td>
+          <%= link_to image_tag('magnifier.png'), user %>
+          <%= link_to image_tag('edit.png'), edit_user_path(user) %>
+          <%= link_to image_tag('delete.png'), user, :confirm => 'Are you sure?', :method => :delete %>
+        </td>
+        <td>
+          <% if(user.active? || user.passive? || user.pending?) %>
+            <%= link_to image_tag('bullet_green.png'), suspend_user_path(user),
+                :confirm => 'Are you sure you want to disable this profile?', :method => :put %>
+          <% elsif user.suspended? %>
+            <%= link_to image_tag('bullet_yellow.png'), unsuspend_user_path(user),
+                :confirm => 'Are you sure you want to enable this profile?', :method => :put %>
+          <% else%>
+            <%= image_tag('bullet_red.png') %>
+          <% end %>
+          <%= link_to image_tag('group_edit.png'), change_roles_user_path(user) %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+    <tbody class="footer">
+      <tr>
+        <td colspan="4">This table contains <%= pluralize(@users.size, 'user') %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<% end %>
+
+<% # END: content %>

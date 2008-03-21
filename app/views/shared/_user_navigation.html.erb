@@ -1,0 +1,15 @@
+<hr/>
+<ul class="subnav">
+  <li class="subnav">
+    <%= link_to image_tag('door_out.png'), sign_out_path, :method => :delete %>
+  </li>
+  <li class="subnav">
+    <%= link_to image_tag('key_go.png'), change_password_user_path(current_user) %>
+  </li>
+  <li class="subnav">
+    <%= link_to image_tag('user_edit.png'), edit_user_path(current_user) %>
+  </li>
+  <li class="subnav">
+    <%= link_to image_tag('user_go.png'), user_path(current_user) %>
+  </li>
+</ul>

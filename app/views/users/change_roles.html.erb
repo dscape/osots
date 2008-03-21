@@ -1,0 +1,30 @@
+<% title 'Changing roles' %>
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'forms' %>
+<% end %>
+
+<% content_for :subcol do %>
+    <h2>Current User</h2>
+    <%= render :partial => 'shared/user_profile', :locals => { :user => @user } %>
+    <%= render :partial => 'shared/user_navigation'%>
+<% end %>
+
+<% # START: content %>
+  <h2>Changing roles</h2>
+
+  <% form_for :user, @user, :url => change_roles_user_path, :html => {:method => :put} do |f| -%>
+
+  <% for role in Role.find(:all) %>
+  <div class="field">
+    <%= check_box_tag "roles_ids[]", role.id, @user.roles.include?(role) %>
+    <%= role.name %>
+  </div>
+  <% end %>
+
+  <div id="change_roles">
+    <%= f.submit "Change user roles" %> 
+  </div>
+  </div>
+<% end %>
+<% # END: content %>

@@ -1,0 +1,27 @@
+<% title 'Create your own profile' %>
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'forms' %>
+<% end %>
+
+<% content_for :subcol do %>
+    <h2>Help</h2>
+    <p>Your <em>username</em> must contain at least 3 digits.</p>
+    <p>Please provide a <em>password</em> longer of at least four digits.</p>
+    <p>Provide a <em>valid email</em> address. Invalid ones will be refused.</p>
+    <p>If you can't fix an error please inform our <%= link_to 'tech support', '#' %> to get help.</p>
+<% end %>
+
+<% # START: content %>
+  <h2>Create a new profile</h2>
+  <%= error_messages_for :user %>
+
+  <% form_for :user, :url => users_path do |f| -%>
+  <%= render :partial => 'user_name', :locals => { :f => f } %>
+  <%= render :partial => 'user_fields', :locals => { :f => f } %>
+  <%= render :partial => 'password_fields', :locals => { :f => f } %>
+  <div id="sign_up">
+    <%= submit_tag "Sign up" %> 
+  </div>
+<% end %>
+<% # END: content %>

@@ -1,0 +1,14 @@
+<% title('User Profile for ' + @user.login) %>
+
+<% content_for :subcol do %>
+  <h2>Profile</h2>
+  <%= render :partial => 'shared/user_profile', :locals => { :user => @user } %>
+  <% if logged_in? %>
+    <%= render :partial => 'shared/user_navigation'%>
+  <% end %>
+<% end %>
+
+<% # START: content %>
+<h2>About me</h2>
+<%= h @user.about %>
+<% # END: content %>

@@ -1,0 +1,69 @@
+/**************
+ * ADMIN AREA *
+ **************/
+#admin {
+  border-top: 1px dashed #ccc;
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+/*****************************************************
+ * ADMIN TABLES - Derived from CouchDB web-interface *
+ *****************************************************/
+  #admin table.listing {
+    border-collapse: collapse;
+    border: 1px solid #89f;
+    clear: both;
+    width: 100%;
+  }
+
+  #admin table.listing caption { display: none; }
+
+  #admin table.listing th, table.listing td { padding: .2em .5em; }
+
+  #admin table.listing thead th {
+    background: #78f;
+    border: 1px solid #89f;
+    color: #fff;
+    font-size: 95%;
+    font-weight: normal;
+    text-align: left;
+    text-transform: capitalize;
+    white-space: nowrap;
+  }
+  
+  #admin table.listing tbody tr th, table.listing tbody tr td { background: #fff; }
+
+  #admin table.listing tbody .gray td { background: #eee; }
+  
+  #admin table.listing tbody th, table.listing tbody td {
+    border-left: 1px solid #89f;
+    padding: .4em .5em;
+    vertical-align: top;
+  }
+
+  #admin table.listing tbody th:first-child, table.listing tbody td:first-child { border-left: none; }
+
+  #admin table.listing tbody th { text-align: left; }
+  
+  #admin table.listing tbody.content th button {
+    background: transparent no-repeat;
+    border: none;
+    cursor: pointer;
+    float: left;
+    margin: 0 5px 0 -20px;
+    padding: 0;
+    width: 15px;
+    height: 15px;
+  }
+
+  #admin table.listing tbody.content th button:hover { background-position: -15px 0; }
+
+  #admin table.listing tbody.footer tr td {
+    background: #78f;
+    border-top: 1px solid #89f;
+    color: #fff;
+    font-size: 90%;
+  }
+
+  #admin table.listing tbody.footer #paging { float: right; }
