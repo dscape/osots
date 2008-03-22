@@ -4,6 +4,7 @@ class CreateExamSessions < ActiveRecord::Migration
       t.integer :user_id
       t.integer :exam_id
       t.integer :current_question, :default => 1
+      t.boolean :finished, :default => false
       t.timestamps
     end
   end

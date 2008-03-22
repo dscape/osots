@@ -97,7 +97,7 @@ class ExamsController < ApplicationController
   def user_can_take_exam
     last_exam_session  = ExamSessions.find :first, :order => 'created_at desc', :conditions =>  "user_id = #{current_user.id}"
     exam_sessions_count = ExamSessions.count :conditions =>  "user_id = #{current_user.id}"
-    
+
     if exam_sessions_count == 0
       true
     elsif exam_sessions_count >= 3

@@ -4,6 +4,8 @@ class ResultsController < ApplicationController
   def show_or_create
     # params[:id]
     
+    # put it finished!!!
+    
     # remeber that we need to find or create.
     # users can forge their way in here so we need this behavior to happen
     # they can forge because they open the current_question_path and last session (that was not created)

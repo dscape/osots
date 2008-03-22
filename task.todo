@@ -19,11 +19,14 @@
 ✓ new table answers
 ✓ new table exam_sessions
 ✓ Admin interfaces to create exams (index, new, create, edit, update, show, destroy)
-- Implementation of the sequential system for the exam
-- 60 minutes timer on the test
+✓ Implementation of the sequential system for the exam
+- 60 minutes timer on the test, time per question in ajax
 ✓ User can only take one exam every seven days and only up to 3 times.
+- Results controller and view must be done.
 - Integration with IBM_DB
+- answer controller needs xml
 - Print diploma pdf-format
 - Admin interfaces for exams with categories for easier selection
 - More information on tables from xml document (in exams and questions)
 - full ibm_db integration
+- bug fixes

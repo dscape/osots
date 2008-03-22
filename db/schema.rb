@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 7) do
     t.integer  "user_id"
     t.integer  "exam_id"
     t.integer  "current_question", :default => 1
+    t.boolean  "finished",         :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

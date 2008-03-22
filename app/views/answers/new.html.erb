@@ -25,18 +25,37 @@
       <dt>
         xpath(question/@difficulty)
       </dt>
-      <dd>
-        Question Countdown
-      </dd>
-      <dt>
-        1m59s
-      </dt>
-      <dd>
-        Exam Countdown
-      </dd>
-      <dt>
-        59h59s
-      </dt>
     </dl>
     <%= render :partial => 'shared/user_navigation'%>
 <% end %>
+
+<!-- START : CONTENT -->
+    <h2>Which of the following is NOT an installation type? (//question_text [<%= @question.id %>])</h2>
+
+      <% form_tag current_question_path do %>
+
+      <% @choices.each_pair do |k,v| %>
+      <div class="field">
+        <%= radio_button_tag "answer", k, false %>
+        <%= v %>
+      </div>
+      <% end %>
+
+      <div id="submit_answer">
+        <%= submit_tag "Submit" %> 
+      </div>
+      </div>
+    <% end %>
+<!-- <dd>
+  Question Countdown
+</dd>
+<dt>
+  1m59s
+</dt>
+<dd>
+  Exam Countdown
+</dd>
+<dt>
+  59h59s
+</dt> -->
+<!-- END : CONTENT -->
