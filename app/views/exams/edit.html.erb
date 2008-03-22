@@ -1,0 +1,25 @@
+<% title 'Editing exam' %>
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'forms' %>
+<% end %>
+
+<% content_for :subcol do %>
+    <h2>Help</h2>
+    <p>There no help for this topic.</p>
+    <p>If you can't fix an error please inform our <%= link_to 'tech support', '#' %> to get help.</p>
+    <%= render :partial => 'shared/user_navigation'%>
+<% end %>
+
+<% # START: content %>
+<h2>Edit exam</h2>
+
+<%= error_messages_for :exam %>
+
+<% form_for(@exam) do |f| -%>
+<%= render :partial => 'exam_fields', :locals => { :f => f } %>
+  <div id="edit_exam">
+    <%= f.submit "Edit Exam" %> 
+  </div>
+<% end %>
+<% # END: content %>

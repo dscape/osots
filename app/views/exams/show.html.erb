@@ -1,0 +1,29 @@
+<% title 'Showing exam' %>
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'forms' %>
+<% end %>
+
+<% content_for :subcol do %>
+    <h2>Configuration</h2>
+    <dl>
+      <dd>Total Time</dd>
+      <dt><%= value_or_unset @exam.total_time %></dt>
+      <dd>Time per Question</dd>
+      <dt><%= value_or_unset @exam.per_question  %></dt>
+      <dd>Total Questions</dd>
+      <dt><%= value_or_unset @exam.nr_questions %></dt>
+    </dl>
+     <%= render :partial => 'shared/user_navigation'%>
+<% end %>
+
+<% # START: content %>
+
+  <h2>Questions</h2>
+  
+  <% @questions.each do |question| %>
+    <hr/>
+    <%= h(question.document.split[0..10].join(' ')) + '...' %>
+  <% end %>
+
+<% # END: content %>

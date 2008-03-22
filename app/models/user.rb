@@ -3,7 +3,8 @@ require 'digest/sha1'
 class User < ActiveRecord::Base
   has_and_belongs_to_many :roles
   has_many :results
-  
+  has_many :exam_sessions
+
   # Virtual attribute for the unencrypted password
   attr_accessor :password, :old_password
 

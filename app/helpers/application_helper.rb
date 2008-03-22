@@ -3,6 +3,10 @@ module ApplicationHelper
     content_for(:title) { title } 
   end
   
+  def value_or_unset(value)
+    value != 0 ? value : 'unset'
+  end
+
   def make_xml_code_in_xhtml(list,print_line_nr=false,theme='iplastic')
     # start code
     ret = "<div class=\"#{theme}_div\">"

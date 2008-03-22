@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  time_limit: 2008-03-21 17:12:09
+  time_limit_per_question: 2008-03-21 17:12:09
+  nr_questions: 1
+
+two:
+  time_limit: 2008-03-21 17:12:09
+  time_limit_per_question: 2008-03-21 17:12:09
+  nr_questions: 1

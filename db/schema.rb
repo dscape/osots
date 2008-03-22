@@ -9,7 +9,37 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 4) do
+ActiveRecord::Schema.define(:version => 7) do
+
+  create_table "answers", :force => true do |t|
+    t.integer  "exam_session_id"
+    t.integer  "exam_id"
+    t.integer  "question_id"
+    t.string   "option",          :limit => 15
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "exam_sessions", :force => true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "exams", :force => true do |t|
+    t.integer  "total_time"
+    t.integer  "per_question"
+    t.integer  "nr_questions"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "exams_questions", :id => false, :force => true do |t|
+    t.integer  "exam_id"
+    t.integer  "question_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "questions", :force => true do |t|
     t.string   "identifier"

@@ -1,0 +1,22 @@
+<h5>Basic Information</h5>
+
+<div id="time_limit" class="field">
+  <label class="time_limit" for="time_limit">&nbsp;Total Time</label><br/>
+  <%= f.text_field :total_time, {:size => 48} %>
+</div>
+
+<div id="time_limit_per_question" class="field">
+  <label class="time_limit_per_question" for="time_limit_per_question">&nbsp;Time per Question</label><br/>
+  <%= f.text_field :per_question, {:size => 48} %>
+</div>
+
+<div class="questions_collection">
+  <h5>Selected Questions</h5>
+  
+  <% for question in Question.find :all %>
+  <div class="field">
+    <%= check_box_tag "exam[question_ids][]", question.id, @exam.questions.include?(question) %>
+    <%= question.id %>
+  </div>
+  <% end %>
+</div>

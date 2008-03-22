@@ -12,6 +12,11 @@ label {
  * CLASSES *
  ***********/
 .field { margin-bottom: 1em; }
+.questions_collection {
+	border-top: 1px dashed #ccc;
+  padding-top: 10px;
+  margin-top: 10px;
+}
 
   /*********
    * ICONS *
@@ -35,6 +40,12 @@ label {
   .about { background: url('../images/asterisk_orange.png') no-repeat top left; }
 
   .document { background: url('../images/page_code.png') no-repeat top left; }
+
+  .nr_questions { background: url('../images/bricks.png') no-repeat top left; }
+
+  .time_limit { background: url('../images/time.png') no-repeat top left; }
+
+  .time_limit_per_question { background: url('../images/clock_red.png') no-repeat top left; }
 
 /******************
  * SPECIFIC ELEMS *

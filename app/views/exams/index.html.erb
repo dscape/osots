@@ -1,0 +1,57 @@
+<% title 'Manage Exams' %>
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'forms' %>
+  <%= stylesheet_link_tag 'admin' %>
+<% end %>
+
+<% content_for :subcol do %>
+    <h2>Management</h2>
+    <p>
+      Welcome to the admin area!
+    </p>
+    <%= render :partial => 'shared/user_navigation'%>
+<% end %>
+
+<% # START: content %>
+    <h2>Manage Exams</h2>
+  <div id="admin">
+    <table class="listing" id="exams_table">
+      <caption>Exams</caption>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Total Time Limit</th>
+            <th>Question Time Limit</th>
+            <th>Total Questions</th>
+            <th>Operations</th>
+          </tr>
+       </thead>
+       <tbody class="content">
+       <% i=0 %>
+       <% for exam in @exams %>
+         <% i+=1 %>
+         <tr<%= " class=\"gray\"" if(i%2 == 0) %>>
+           <td><%= exam.id %></td>
+           <td><%= value_or_unset exam.total_time %></td>
+           <td><%= value_or_unset exam.per_question  %></td>
+           <td><%= value_or_unset exam.nr_questions %></td>
+           <td>
+             <%= link_to image_tag('magnifier.png'), exam %>
+             <%= link_to image_tag('edit.png'), edit_exam_path(exam) %>
+             <%= link_to image_tag('delete.png'), exam, :confirm => 'Are you sure?', :method => :delete %>
+         </tr>
+       <% end %>
+       </tbody>
+       <tbody class="footer">
+         <tr>
+           <td colspan="5">This table contains <%= pluralize(@exams.size, 'exam') %></td>
+         </tr>
+       </tbody>
+    </table>
+    <br/>
+    <div valign="middle">
+      <%= link_to image_tag('add.png'), new_exam_path %> <%= link_to 'New exam', new_exam_path %>
+    </div>
+  </div>
+<% # END: content %>
