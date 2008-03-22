@@ -21,9 +21,9 @@
 ✓ Admin interfaces to create exams (index, new, create, edit, update, show, destroy)
 - Implementation of the sequential system for the exam
 - 60 minutes timer on the test
-- User can only take one exam every seven days and only up to 3 times.
+✓ User can only take one exam every seven days and only up to 3 times.
 - Integration with IBM_DB
 - Print diploma pdf-format
 - Admin interfaces for exams with categories for easier selection
 - More information on tables from xml document (in exams and questions)
-
+- full ibm_db integration
