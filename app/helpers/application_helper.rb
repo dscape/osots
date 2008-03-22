@@ -2,7 +2,7 @@ module ApplicationHelper
   def title(title)
     content_for(:title) { title } 
   end
-  
+
   def value_or_unset(value)
     value != 0 ? value : 'unset'
   end

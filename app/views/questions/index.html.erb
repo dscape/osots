@@ -46,7 +46,7 @@
   <p>In this exam you can test your DB2 pureXML knowledge while learning some new things about DB2. You can also get ideas what to try and test in DB2 to deepen your understanding of the new XML support.</p>
   <p>This exam contains questions many of which we have heard from customers over and over again. Some questions are easy, some are not so easy, and a few are tricky. There is a 60 minutes time limit to answer all questions, and we encourage you to use the DB2 documentation and DB2 9.5 itself to find the answers. Try out queries and indexes, look around the catalog tables in DB2, whatever it takes to answer the questions.</p>
   <p align="right">
-    <%= link_to 'Take the exam', "#" if logged_in? %>
+    <%= link_to 'Take the exam', current_question_path if logged_in? %>
   </p>
 <% if authorized? %>
   <div id="admin">

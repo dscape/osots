@@ -1,0 +1,42 @@
+<% title 'Question ' + @exam_session.current_question.to_s %>
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'forms' %>
+<% end %>
+
+<% content_for :subcol do %>
+    <h2>Information</h2>
+    <dl>
+      <dd>
+        Author
+      </dd>
+      <dt>
+        xpath(author/user_ID)
+      </dt>
+      <dd>
+        Topic
+      </dd>
+      <dt>
+        xpath(question/@topic)
+      </dt>
+      <dd>
+        Difficulty
+      </dd>
+      <dt>
+        xpath(question/@difficulty)
+      </dt>
+      <dd>
+        Question Countdown
+      </dd>
+      <dt>
+        1m59s
+      </dt>
+      <dd>
+        Exam Countdown
+      </dd>
+      <dt>
+        59h59s
+      </dt>
+    </dl>
+    <%= render :partial => 'shared/user_navigation'%>
+<% end %>

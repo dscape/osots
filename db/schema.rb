@@ -13,7 +13,6 @@ ActiveRecord::Schema.define(:version => 7) do
 
   create_table "answers", :force => true do |t|
     t.integer  "exam_session_id"
-    t.integer  "exam_id"
     t.integer  "question_id"
     t.string   "option",          :limit => 15
     t.datetime "created_at"
@@ -22,6 +21,8 @@ ActiveRecord::Schema.define(:version => 7) do
 
   create_table "exam_sessions", :force => true do |t|
     t.integer  "user_id"
+    t.integer  "exam_id"
+    t.integer  "current_question", :default => 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end

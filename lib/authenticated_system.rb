@@ -129,4 +129,5 @@ module AuthenticatedSystem
         self.current_user = user
       end
     end
+    
 end

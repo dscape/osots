@@ -1,5 +1,25 @@
 class ExamsController < ApplicationController
-  before_filter :authorization_required
+  before_filter :authorization_required, :except => :prepare_exam
+  before_filter :login_required, :only => :prepare_exam
+  before_filter :user_can_take_exam, :only => :prepare_exam
+
+  def prepare_exam
+    exams = Exam.find :all
+    
+    # select one random exam
+    rand_exam_id = exams[rand(exams.size)].id
+    
+    # create new exam session
+    exam_session = ExamSessions.new :user_id => current_user.id, :exam_id => rand_exam_id
+    
+    if exam_session.save
+      flash[:ok] = 'Goodluck with your test'
+      redirect_to current_question_path
+    else
+      flash[:error] = 'Please try again'
+      redirect_to root_path
+    end
+  end
 
   def index
     @exams = Exam.find :all
@@ -71,6 +91,24 @@ class ExamsController < ApplicationController
 
     flash[:notice] = 'Exam destroyed.'
     redirect_to exams_url
+  end
+  
+  protected
+  def user_can_take_exam
+    last_exam_session  = ExamSessions.find :first, :order => 'created_at desc', :conditions =>  "user_id = #{current_user.id}"
+    exam_sessions_count = ExamSessions.count :conditions =>  "user_id = #{current_user.id}"
+    
+    if exam_sessions_count == 0
+      true
+    elsif exam_sessions_count >= 3
+      flash[:error] = 'You failed three times and cannot take the exam.'
+      redirect_to result_path last_exam_session.id
+    elsif last_exam_session.created_at + 7.days > Time.now
+      flash[:warning] = "You have to wait until #{last_exam_session.created_at + 7.days} to take a new exam."
+      redirect_to result_path last_exam_session.id
+    else
+      true
+    end
   end
   
 end
