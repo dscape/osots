@@ -1,0 +1,49 @@
+<% @result.passed ? (title 'Congratulations! You passed!') : (tittle 'Failed! You will have to try again :(') %>
+
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'result' %>
+<% end %>
+
+<% content_for :subcol do %>
+    <h2>Your result</h2>
+    <dl>
+      <dd>
+        Score
+      </dd>
+      <dt>
+        <%= @result.score %> / <%= 100 %>
+      </dt>
+    </dl>
+    <%= render :partial => 'shared/user_navigation'%>
+<% end %>
+
+<% # START: content %>
+    <h2>Where did I fail?</h2>
+    <% @questions.each do |question| %>
+      <p>
+        <strong>
+          <%= h(question.document.split[0..10].join(' ')) + '...' %>
+        </strong>
+      </p>
+      <div id="question-report">
+        <ul>
+          <li style="background: url(../images/bullet_green.png) 5px left no-repeat">
+            choiceA <%= image_tag 'flag_blue.png' if @answers.select { |a| a.question_id == question.id }.first.option == 'choiceA' %>
+          </li>
+          <li>
+            choiceB <%= image_tag 'flag_blue.png' if @answers.select { |a| a.question_id == question.id }.first.option == 'choiceB' %>
+          </li>
+          <li>
+            choiceC <%= image_tag 'flag_blue.png' if @answers.select { |a| a.question_id == question.id }.first.option == 'choiceC' %>
+          </li>
+          <li>
+            choiceD <%= image_tag 'flag_blue.png' if @answers.select { |a| a.question_id == question.id }.first.option == 'choiceD' %>
+          </li>
+          <li>
+            choiceE <%= image_tag 'flag_blue.png' if @answers.select { |a| a.question_id == question.id }.first.option == 'choiceE' %>
+          </li>
+        </ul>
+      </div>
+
+    <% end %>
+<% # END: content %>
