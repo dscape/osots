@@ -1,4 +1,4 @@
-<% @result.passed ? (title 'Congratulations! You passed!') : (tittle 'Failed! You will have to try again :(') %>
+<% @result.passed ? (title 'Congratulations! You passed!') : (title 'Failed! You will have to try again :(') %>
 
 <% content_for :head do %>
   <%= stylesheet_link_tag 'result' %>
@@ -20,6 +20,7 @@
 <% # START: content %>
     <h2>Where did I fail?</h2>
     <% @questions.each do |question| %>
+    <% answer_user = @answers.select { |a| a.question_id == question.id }.first %>
       <p>
         <strong>
           <%= h(question.document.split[0..10].join(' ')) + '...' %>
@@ -28,19 +29,19 @@
       <div id="question-report">
         <ul>
           <li style="background: url(../images/bullet_green.png) 5px left no-repeat">
-            choiceA <%= image_tag 'flag_blue.png' if @answers.select { |a| a.question_id == question.id }.first.option == 'choiceA' %>
+            choiceA <%= image_tag 'flag_blue.png' if !answer_user.nil? && answer_user.option == 'choiceA' %>
           </li>
           <li>
-            choiceB <%= image_tag 'flag_blue.png' if @answers.select { |a| a.question_id == question.id }.first.option == 'choiceB' %>
+            choiceB <%= image_tag 'flag_blue.png' if !answer_user.nil? && answer_user.option == 'choiceB' %>
           </li>
           <li>
-            choiceC <%= image_tag 'flag_blue.png' if @answers.select { |a| a.question_id == question.id }.first.option == 'choiceC' %>
+            choiceC <%= image_tag 'flag_blue.png' if !answer_user.nil? && answer_user.option == 'choiceC' %>
           </li>
           <li>
-            choiceD <%= image_tag 'flag_blue.png' if @answers.select { |a| a.question_id == question.id }.first.option == 'choiceD' %>
+            choiceD <%= image_tag 'flag_blue.png' if !answer_user.nil? && answer_user.option == 'choiceD' %>
           </li>
           <li>
-            choiceE <%= image_tag 'flag_blue.png' if @answers.select { |a| a.question_id == question.id }.first.option == 'choiceE' %>
+            choiceE <%= image_tag 'flag_blue.png' if !answer_user.nil? && answer_user.option == 'choiceE' %>
           </li>
         </ul>
       </div>
