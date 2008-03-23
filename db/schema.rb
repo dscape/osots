@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(:version => 7) do
 
   create_table "results", :force => true do |t|
     t.integer  "user_id"
+    t.integer  "exam_session_id"
     t.boolean  "passed"
     t.datetime "created_at"
     t.datetime "updated_at"

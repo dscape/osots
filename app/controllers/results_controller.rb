@@ -1,47 +1,82 @@
 class ResultsController < ApplicationController
-  before_filter :login_required
+  before_filter :login_required, :only => :show_or_create
+  before_filter :exam_session_is_valid, :only => :show_or_create
+  before_filter :own_profile, :only => :show
   
   def show_or_create
-    # params[:id]
+    find_or_initialize_result
+    @result.new_record? ? create : show
+  end
+  
+  private
+
+  def create
+    prepare_result
     
-    # put it finished!!!
+    if @result.save
+      if @result.passed
+        flash[:ok] = 'Congratulations! You passed'
+        # redirect do the certificate
+        redirect_to root_path #comment this
+      else
+        flash[:warning] = 'Sorry, you failed. You can try again in seven days.'
+        # redirect do the certificate
+        redirect_to root_path #comment this
+      end
+    else
+      flash[:error] = 'Error processing result. Please start again.'
+      
+      es = ExamSessions.find :first,
+                             :order => 'created_at desc',
+                             :conditions =>  "user_id = #{current_user.id}"
+                                        
+      # user can't be blamed for this. so we give them the test back
+      es.destroy
+      redirect_to root_path
+    end
+  end
+
+  def prepare_result
+    answers = Answers.find :all, :conditions => "exam_session_id = #{@exam_session.id}"
+    questions = @exam_session.exam.questions
     
-    # remeber that we need to find or create.
-    # users can forge their way in here so we need this behavior to happen
-    # they can forge because they open the current_question_path and last session (that was not created)
-    # is on the last question.
+    correct = wrong = []
     
-    # will need to get the hash with response to each question
-    # and eval if the result is better than 65%
-    # that should be stored in a bool var named pass.
-    # the rest of the controller is ok! :)
-    #nr_res = Result.count(:conditions => "user_id = #{current_user.id}"
-    #
-    #if nr_res < 3
-    #  last_date = Result.find(:first, :order => 'created_at desc', :conditions =>  "user_id = #{current_user.id}").created_at
-    #  if((Time.now - last_date) > 7.days)
-    #    @result = Result.new #params[:result]
-    #    
-    #    if @result.save
-    #      if passed
-    #        flash[:ok] = 'Congratulations! You passed'
-    #        # redirect do the certificate
-    #        redirect_to root_path #comment this
-    #      else
-    #        flash[:ok] = 'Sorry, you failed. You can try again in seven days.'
-    #        # redirect do the certificate
-    #        redirect_to root_path
-    #      end
-    #    else
-    #      render :action => "new"
-    #    end
-    #  else
-    #    flash[:error] = 'You have to wait seven days from your last exam.'
-    #    redirect_to root_path
-    #  end
-    #else
-    #  flash[:error] = 'Sorry you already used all of your chances to do this test.'
-    #  redirect_to root_path
-    #end
+    if answers.size > questions.size
+      flash[:error] = 'An error occurred. Please try again later.'
+      redirect_to root_path
+    end
+    
+    questions.each do |question|
+      correct_option = 'choiceA' # get from DB2
+    end
+
+  end
+
+  def show
+    render :text => 'show'
+  end
+  
+  def exam_session_is_valid
+     @exam_session = ExamSessions.find_by_id params[:id], :limit => 1
+     if @exam_session.nil?
+       flash[:error] = 'That exam result does not exist.'
+       redirect_to root_path
+     else
+       true
+     end
+  end
+  
+  def find_or_initialize_result
+    @result = Result.find_or_initialize_by_exam_session_id params[:id]
+  end
+
+  def own_profile
+    unless current_user.id == @result.user_id
+      flash[:error] = 'You cannot see this result because it belongs to another user.'
+      redirect_to root_path
+    else
+      return true
+    end
   end
 end
