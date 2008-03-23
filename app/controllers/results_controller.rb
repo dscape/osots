@@ -49,6 +49,7 @@ class ResultsController < ApplicationController
     
     questions.each do |question|
       correct_option = 'choiceA' # get from DB2
+      
     end
 
   end
