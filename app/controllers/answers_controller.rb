@@ -17,7 +17,7 @@ class AnswersController < ApplicationController
     # increment current question (1)
     @exam_session.increment! :current_question
 
-   if @exam_session.exam.per_question.minutes != 0 && @exam_session.updated_at + @exam_session.exam.per_question.minutes < Time.now
+   if @exam_session.exam.per_question != 0 && @exam_session.updated_at + @exam_session.exam.per_question.minutes < Time.now
      flash[:warning] = 'Your answer was not considered. Time limit for the question passed!'
      redirect_to current_question_path
    else
@@ -26,7 +26,17 @@ class AnswersController < ApplicationController
      Answers.create :exam_session_id => @exam_session.id, 
                    :question_id => @question.id,
                    :option => params[:answer]
-     flash[:notice] = "Answer accepted. Question #{@exam_session.current_question} is up!" 
+                   
+     @exam_session.exam.total_time == 0 ?
+       finish_string = "" :
+       finish_string = " Exam will end in<strong> " +
+                       "#{ActionView::Helpers::DateHelper.time_ago_in_words(@exam_session.created_at + @exam_session.exam.total_time.minutes,true)}" +
+                       "</strong>."
+     @exam_session.exam.per_question == 0 ?
+       time_question = "" :
+       time_question = " You have <strong>#{@exam_session.exam.per_question}</strong> minutes for this question"
+       
+     flash[:ok] = "Answer <strong>accepted</strong>." + finish_string + time_question
      redirect_to current_question_path
    end
   end
@@ -47,7 +57,7 @@ class AnswersController < ApplicationController
     if @exam_session.exam.nr_questions < @exam_session.current_question
       flash[:notice] = 'You have finished the test.'
       render_results
-    elsif @exam_session.exam.total_time.minutes != 0 && @exam_session.created_at + @exam_session.exam.total_time.minutes < Time.now 
+    elsif @exam_session.exam.total_time != 0 && @exam_session.created_at + @exam_session.exam.total_time.minutes < Time.now 
       flash[:warning] = 'Time is up. Here are your results.'
       render_results
     else

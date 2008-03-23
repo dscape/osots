@@ -20,7 +20,9 @@
 ✓ new table exam_sessions
 ✓ Admin interfaces to create exams (index, new, create, edit, update, show, destroy)
 ✓ Implementation of the sequential system for the exam
-- 60 minutes timer on the test, time per question in ajax
+✓ 60 minutes warning plus time for question in flash
+✓ timeago in rails please
+✓ clean up form with x and valid
 ✓ User can only take one exam every seven days and only up to 3 times.
 ✓ Results controller and view must be done.
 - Integration with IBM_DB

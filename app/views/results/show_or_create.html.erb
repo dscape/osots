@@ -28,20 +28,20 @@
       </p>
       <div id="question-report">
         <ul>
-          <li style="background: url(../images/bullet_green.png) 5px left no-repeat">
-            choiceA <%= image_tag 'flag_blue.png' if !answer_user.nil? && answer_user.option == 'choiceA' %>
+          <li style="background: url(../images/tick.png) 5px left no-repeat">
+            choiceA
           </li>
-          <li>
-            choiceB <%= image_tag 'flag_blue.png' if !answer_user.nil? && answer_user.option == 'choiceB' %>
+          <li <%= mark_choice answer_user, 'choiceB' %>>
+            choiceB 
           </li>
-          <li>
-            choiceC <%= image_tag 'flag_blue.png' if !answer_user.nil? && answer_user.option == 'choiceC' %>
+          <li <%= mark_choice answer_user, 'choiceC' %>>
+            choiceC
           </li>
-          <li>
-            choiceD <%= image_tag 'flag_blue.png' if !answer_user.nil? && answer_user.option == 'choiceD' %>
+          <li <%= mark_choice answer_user, 'choiceD' %>>
+            choiceD
           </li>
-          <li>
-            choiceE <%= image_tag 'flag_blue.png' if !answer_user.nil? && answer_user.option == 'choiceE' %>
+          <li <%= mark_choice answer_user, 'choiceE' %>>
+            choiceE
           </li>
         </ul>
       </div>
