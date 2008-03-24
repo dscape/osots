@@ -1,7 +1,7 @@
 class CreateQuestions < ActiveRecord::Migration
   def self.up
     create_table :questions do |t|
-      t.string :document
+      t.column :document, :xml, :null => false
       t.timestamps
     end
   end

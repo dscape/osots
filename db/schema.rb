@@ -12,100 +12,99 @@
 ActiveRecord::Schema.define(:version => 7) do
 
   create_table "answers", :force => true do |t|
-    t.integer  "exam_session_id"
-    t.integer  "question_id"
-    t.string   "option",          :limit => 15
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "exam_session_id"
+    t.integer   "question_id"
+    t.string    "option",          :limit => 15
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "exam_sessions", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "exam_id"
-    t.integer  "current_question", :default => 1
-    t.boolean  "finished",         :default => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "user_id"
+    t.integer   "exam_id"
+    t.integer   "current_question", :default => 1
+    t.boolean   "finished",         :default => false
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "exams", :force => true do |t|
-    t.integer  "total_time"
-    t.integer  "per_question"
-    t.integer  "nr_questions"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "total_time"
+    t.integer   "per_question"
+    t.integer   "nr_questions"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "exams_questions", :id => false, :force => true do |t|
-    t.integer  "exam_id"
-    t.integer  "question_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "exam_id"
+    t.integer   "question_id"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "questions", :force => true do |t|
-    t.string   "identifier"
-    t.string   "document"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.xml       "document",   :null => false
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "results", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "exam_session_id"
-    t.integer  "score"
-    t.boolean  "passed",          :default => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "user_id"
+    t.integer   "exam_session_id"
+    t.integer   "score"
+    t.boolean   "passed",          :default => false
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "rights", :force => true do |t|
-    t.string   "name"
-    t.string   "controller"
-    t.string   "action"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "name"
+    t.string    "controller"
+    t.string    "action"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "rights_roles", :id => false, :force => true do |t|
-    t.integer  "right_id"
-    t.integer  "role_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "right_id"
+    t.integer   "role_id"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "roles", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "name"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "roles_users", :id => false, :force => true do |t|
-    t.integer  "role_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer   "role_id"
+    t.integer   "user_id"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "users", :force => true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.text     "about"
-    t.string   "homepage"
-    t.string   "login"
-    t.string   "email"
-    t.string   "crypted_password",          :limit => 40
-    t.string   "salt",                      :limit => 40
-    t.string   "remember_token"
-    t.datetime "remember_token_expires_at"
-    t.datetime "last_login_at"
-    t.string   "activation_code",           :limit => 40
-    t.string   "password_reset_code",       :limit => 40
-    t.datetime "activated_at"
-    t.string   "state",                                   :default => "passive"
-    t.datetime "deleted_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "first_name"
+    t.string    "last_name"
+    t.text      "about",                     :limit => 1048576
+    t.string    "homepage"
+    t.string    "login"
+    t.string    "email"
+    t.string    "crypted_password",          :limit => 40
+    t.string    "salt",                      :limit => 40
+    t.string    "remember_token"
+    t.timestamp "remember_token_expires_at"
+    t.timestamp "last_login_at"
+    t.string    "activation_code",           :limit => 40
+    t.string    "password_reset_code",       :limit => 40
+    t.timestamp "activated_at"
+    t.string    "state",                                        :default => "passive"
+    t.timestamp "deleted_at"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
 end
