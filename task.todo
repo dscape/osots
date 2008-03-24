@@ -25,6 +25,12 @@
 ✓ clean up form with x and valid
 ✓ User can only take one exam every seven days and only up to 3 times.
 ✓ Results controller and view must be done.
+- Prepare gedit for some real rails action
+  http://rubymm.blogspot.com/2007/08/make-gedit-behave-roughly-like-textmate.html
+  http://ca.rroll.net/2008/02/05/ruby-on-rails-development-with-gedit/
+  http://www.railsforum.com/viewtopic.php?pid=56046
+  http://www.railsforum.com/viewtopic.php?pid=45685
+  http://live.gnome.org/Gedit/Plugins
 - Integration with IBM_DB
 - answer controller needs xml
 - Print diploma pdf-format
