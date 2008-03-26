@@ -26,9 +26,32 @@
 ✓ User can only take one exam every seven days and only up to 3 times.
 ✓ Results controller and view must be done.
 ✓ Integration with IBM_DB
+- exams controller needs xml
+  ✓ index
+  - show (also needs to display time information while it currently doesnt)
+  - edit/update
+  - new/create
+  - destroy
+  - custom non rest actions
+  - check all views
 - answer controller needs xml
+  - index
+  - show
+  - edit/update
+  - new/create
+  - destroy
+  - custom non rest actions
+  - check all views
 - Print diploma pdf-format
 - Admin interfaces for exams with categories for easier selection
 - More information on tables from xml document (in exams and questions)
 - full ibm_db integration
 - bug fixes
+- improve validation with xml schema
+- user id on xml document is not valid, should be auto-generated. maybe out of
+  the xml document?
+- language for the document does not comply with iso designation that should
+  be en-US
+- documents provided do not state the <? xml version language enconding stuff
+- refactor code
+- create xml indexes on answers

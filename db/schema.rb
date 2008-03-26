@@ -50,7 +50,6 @@ ActiveRecord::Schema.define(:version => 7) do
   end
 
   create_table "results", :force => true do |t|
-    t.integer   "user_id"
     t.integer   "exam_session_id"
     t.integer   "score"
     t.boolean   "passed",          :default => false
@@ -79,6 +78,8 @@ ActiveRecord::Schema.define(:version => 7) do
     t.timestamp "updated_at"
   end
 
+  add_index "roles", ["name"], :name => "roles_on_name"
+
   create_table "roles_users", :id => false, :force => true do |t|
     t.integer   "role_id"
     t.integer   "user_id"
@@ -106,5 +107,8 @@ ActiveRecord::Schema.define(:version => 7) do
     t.timestamp "created_at"
     t.timestamp "updated_at"
   end
+
+  add_index "users", ["email"], :name => "users_on_email"
+  add_index "users", ["login"], :name => "users_on_login"
 
 end

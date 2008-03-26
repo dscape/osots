@@ -45,8 +45,6 @@ class ResultsController < ApplicationController
   def prepare_result
     @min = 65 # 65%
     
-    @result.user_id = current_user.id
-    
     @correct = []
     
     @questions.each do |question|
