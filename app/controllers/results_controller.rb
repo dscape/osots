@@ -47,10 +47,9 @@ class ResultsController < ApplicationController
     
     @correct = []
     
-    @questions.each do |question|
-      correct_option = 'choiceA' # get from DB2
+    @questions.each_with_index do |question,i|
+      correct_option = @correct_choices[i]
       answer_for_question = @answers.select { |a| a.question_id == question.id }.first
-
       # unless the user has no answer
       if !answer_for_question.nil? && answer_for_question.option == correct_option
         @correct << question.id
@@ -67,7 +66,8 @@ class ResultsController < ApplicationController
   def fecth_class_vars
     @answers = Answers.find :all, :conditions => "exam_session_id = #{@exam_session.id}"
     @exam = @exam_session.exam
-    @questions = @exam.questions
+    @questions = Exam.find_questions_by_exam_id @exam.id
+    @correct_choices =  @questions.map(&:correct_choice)
   end
 
   def exam_session_is_valid
@@ -85,6 +85,6 @@ class ResultsController < ApplicationController
   end
 
   def owns_profile?
-    current_user.id == @result.user_id
+    current_user.id == @result.exam_sessions.user_id
   end
 end

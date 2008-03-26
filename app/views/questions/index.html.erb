@@ -56,27 +56,36 @@
         <thead>
           <tr>
             <th>ID</th>
-            <th>Document</th>
+            <th>Difficulty</th>
+            <th>Question</th>
             <th>Operations</th>
           </tr>
        </thead>
        <tbody class="content">
        <% i=0 %>
-       <% for question in @questions %>
+       <% @questions.each_pair do |key,value| %>
+         <tr>
+           <td class="topic" colspan="4">
+             <%= pluralize_question_by_topic(key,value) %>
+           </td>
+         </tr>
+         <% for question in value %>
          <% i+=1 %>
          <tr<%= " class=\"gray\"" if(i%2 == 0) %>>
            <td><%= h question.id %></td>
-           <td><%= h(question.document.split[0..10].join(' ')) + '...' %></td>
+           <td><%= h question.difficulty %></td>
+           <td><%= h question.question_text %></td>
            <td>
              <%= link_to image_tag('magnifier.png'), question %>
              <%= link_to image_tag('edit.png'), edit_question_path(question) %>
              <%= link_to image_tag('delete.png'), question, :confirm => 'Are you sure?', :method => :delete %>
          </tr>
+         <% end %>
        <% end %>
        </tbody>
        <tbody class="footer">
          <tr>
-           <td colspan="3">This table contains <%= pluralize(@questions.size, 'question') %></td>
+           <td colspan="4">This table contains <%= pluralize(@questions.size, 'question') %></td>
          </tr>
        </tbody>
     </table>

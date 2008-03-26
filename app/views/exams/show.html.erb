@@ -2,6 +2,7 @@
 
 <% content_for :head do %>
   <%= stylesheet_link_tag 'forms' %>
+  <%= stylesheet_link_tag 'admin' %>
 <% end %>
 
 <% content_for :subcol do %>
@@ -21,9 +22,16 @@
 
   <h2>Questions</h2>
   
-  <% @questions.each do |question| %>
-    <hr/>
-    <%= h(question.document.split[0..10].join(' ')) + '...' %>
+  <div id="admin">
+  <% @questions.each_pair do |key,value| %>
+    <h5 class="topic">
+      <%= pluralize_question_by_topic(key,value) %>
+    </h5>
+    <% for question in value %>
+    <p>
+      <%= link_to question.question_text, question_path(question) %>
+    <p>
+    <% end %>
   <% end %>
-
+  </div>
 <% # END: content %>

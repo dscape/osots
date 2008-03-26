@@ -53,8 +53,8 @@ class ExamsController < ApplicationController
   end
   
   def show
-    @exam = Exam.find params[:id], :include => :questions
-    @questions = @exam.questions
+    @exam = Exam.find params[:id]
+    @questions = Exam.find_questions_by_exam_id(params[:id]).group_by(&:topic)
   end
   
   def edit
@@ -104,7 +104,7 @@ class ExamsController < ApplicationController
       flash[:error] = 'You failed three times and cannot take the exam.'
       redirect_to result_path last_exam_session.id
     elsif last_exam_session.created_at + 7.days > Time.now
-      flash[:warning] = "You have to wait until #{last_exam_session.created_at + 7.days} to take a new exam."
+      flash[:warning] = "You have to wait #{ActionView::Helpers::DateHelper.time_ago_in_words(last_exam_session.created_at + 7.days)} to take a new exam."
       redirect_to result_path last_exam_session.id
     else
       true

@@ -32,7 +32,7 @@ module AuthenticatedSystem
     #  end
     def authorized?
       return false unless logged_in?
-      return true if is_root?
+      return true if has_root?
 
       current_user.roles.detect{|role| 
         role.rights.detect{|right| 
@@ -40,9 +40,9 @@ module AuthenticatedSystem
         }
       }
     end
-    
-    def is_root?
-      !current_user.roles.find_by_name('root').nil?
+
+    def has_root?
+      current_user.roles.detect {|role| role.name == 'root'}
     end
 
     # Filter method to enforce a login requirement.

@@ -7,8 +7,18 @@ module ApplicationHelper
     value != 0 ? value : 'unset'
   end
   
-  def mark_choice(answer_user, compare_to)
-    "style=\"background: url(../images/choice.png) 5px left no-repeat\"" if !answer_user.nil? && answer_user.option == compare_to
+  def pluralize_question_by_topic(k,v)
+    pluralize(v.size, 'question') + " on <strong>" + k + "</strong>"
+  end
+  
+  def mark_choice(answer_user, compare_to, correct_choice)
+    if correct_choice == compare_to
+      %(style="background: url(../images/tick.png) 5px left no-repeat")
+    elsif !answer_user.nil? && answer_user.option == compare_to
+      %(style="background: url(../images/choice.png) 5px left no-repeat")
+    else 
+      ""
+    end
   end
 
   def make_xml_code_in_xhtml(list,print_line_nr=false,theme='iplastic')

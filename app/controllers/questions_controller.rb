@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
   before_filter :authorization_required, :except => :index
 
   def index
-    @questions = Question.find(:all) if authorized?
+    @questions = Question.find_all_and_return_xml_table.group_by(&:topic) if authorized?
   end
 
   def show

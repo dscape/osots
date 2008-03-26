@@ -13,10 +13,17 @@
 <div class="questions_collection">
   <h5>Selected Questions</h5>
   
-  <% for question in Question.find :all %>
+
+  <% Question.find_all_and_return_xml_table.group_by(&:topic).each_pair do |k,v| %>
+  <h5 class="topic">
+    <%= k %>
+  </h5>
+  <% for question in v %>
   <div class="field">
     <%= check_box_tag "exam[question_ids][]", question.id, @exam.questions.include?(question) %>
-    <%= question.id %>
+    <%= "<strong>#{question.id}</strong> " + question.question_text %>
   </div>
   <% end %>
+  <% end %>
+
 </div>

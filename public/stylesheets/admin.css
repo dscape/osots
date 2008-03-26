@@ -7,6 +7,12 @@
   margin-top: 10px;
 }
 
+#admin .topic {
+  text-align: right;
+  text-transform: uppercase;
+  background: #9c9;
+  color: #fff;
+}
 /*****************************************************
  * ADMIN TABLES - Derived from CouchDB web-interface *
  *****************************************************/

@@ -11,26 +11,28 @@
         Author
       </dd>
       <dt>
-        xpath(author/user_ID)
+        <%= @question.author %>
       </dt>
       <dd>
         Topic
       </dd>
       <dt>
-        xpath(question/@topic)
+        <%= @question.topic %>
       </dt>
       <dd>
         Difficulty
       </dd>
       <dt>
-        xpath(question/@difficulty)
+        <%= @question.difficulty %>
       </dt>
     </dl>
     <%= render :partial => 'shared/user_navigation'%>
 <% end %>
 
 <!-- START : CONTENT -->
-    <h2>Which of the following is NOT an installation type? (//question_text [<%= @question.id %>])</h2>
+    <h2>
+      <%= @question.question_text %>
+    </h2>
 
       <% form_tag current_question_path do %>
 
@@ -46,16 +48,4 @@
       </div>
       </div>
     <% end %>
-<!-- <dd>
-  Question Countdown
-</dd>
-<dt>
-  1m59s
-</dt>
-<dd>
-  Exam Countdown
-</dd>
-<dt>
-  59h59s
-</dt> -->
 <!-- END : CONTENT -->

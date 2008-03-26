@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 7) do
+ActiveRecord::Schema.define(:version => 8) do
 
   create_table "answers", :force => true do |t|
     t.integer   "exam_session_id"
@@ -47,6 +47,21 @@ ActiveRecord::Schema.define(:version => 7) do
     t.xml       "document",   :null => false
     t.timestamp "created_at"
     t.timestamp "updated_at"
+  end
+
+  create_table "questions_v", :force => true do |t|
+    t.string  "difficulty",        :limit => 20
+    t.string  "topic",             :limit => 40
+    t.string  "language",          :limit => 20
+    t.string  "author",            :limit => 40
+    t.integer "minutes_allocated"
+    t.string  "question_text",     :limit => 200
+    t.string  "choice_a",          :limit => 150
+    t.string  "choice_b",          :limit => 150
+    t.string  "choice_c",          :limit => 150
+    t.string  "choice_d",          :limit => 150
+    t.string  "choice_e",          :limit => 150
+    t.string  "correct_choice",    :limit => 10
   end
 
   create_table "results", :force => true do |t|
