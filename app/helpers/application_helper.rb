@@ -13,9 +13,9 @@ module ApplicationHelper
   
   def mark_choice(answer_user, compare_to, correct_choice)
     if correct_choice == compare_to
-      %(style="background: url(../images/tick.png) 5px left no-repeat")
+      %( style="background: url('/images/tick.png') center left no-repeat")
     elsif !answer_user.nil? && answer_user.option == compare_to
-      %(style="background: url(../images/choice.png) 5px left no-repeat")
+      %( style="background: url('/images/choice.png') center left no-repeat")
     else 
       ""
     end

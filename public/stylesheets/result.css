@@ -1,9 +1,9 @@
-#question-report ul {
+#questionreport ul {
 	
 }
 
-#question-report li {
-	background: url(../images/bullet_black.png) 5px left no-repeat;
+#questionreport li {
+	background: url('/images/bullet_black.png') no-repeat center left;
 	line-height: 2em;
 	list-style: none;
   padding: 3px 10px 3px 25px;
