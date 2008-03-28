@@ -188,7 +188,7 @@ class UsersController < ApplicationController
     
     def own_profile
       unless current_user.nil? || @user.nil?
-        if @user.id == current_user.id || is_root?
+        if @user.id == current_user.id || has_root?
           true
         else
           flash[:error] = 'You can only edit your own profile.'
