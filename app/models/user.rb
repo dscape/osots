@@ -16,7 +16,8 @@ class User < ActiveRecord::Base
   # attributes                                                                 #
   ##############################################################################
   attr_accessor :password, :old_password
-  attr_accessible :login, :email, :old_password, :password,
+  attr_accessible :login, :email#, :only => create
+  attr_accessible :old_password, :password,
                   :password_confirmation, :name, :homepage, :about
 
   ##############################################################################
@@ -24,11 +25,16 @@ class User < ActiveRecord::Base
   ##############################################################################
   # indexes: login, email
   validates_presence_of     :login, :email
+                         #, :only => create
   validates_length_of       :login,    :within => 3..40
+                         #, :only => create
   validates_length_of       :email,    :within => 3..100
+                         #, :only => create
   validates_uniqueness_of   :login, :email, :case_sensitive => false
+                         #, :only => create
   validates_format_of       :email, 
-                      :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
+                            :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
+                         #, :only => create
 
   # password  
   validates_presence_of     :password,                :if => :password_required?

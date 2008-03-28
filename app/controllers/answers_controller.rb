@@ -2,7 +2,7 @@ class AnswersController < ApplicationController
   before_filter :login_required
   before_filter :find_exam_session
   before_filter :exam_session_is_valid
-  before_filter :exam_session_is_not_finished, :only => :new
+  before_filter :exam_session_is_not_finished#, :only => :new
 
   def new
     @question_id = (@exam_session.exam.questions.find :first,
@@ -77,7 +77,7 @@ class AnswersController < ApplicationController
       flash[:notice] = 'You have finished the test.'
       render_results
     elsif @exam_session.exam.total_time != 0 && @exam_session.created_at + @exam_session.exam.total_time.minutes < Time.now 
-      flash[:warning] = 'Time is up. Here are your results.'
+      flash[:error] = 'Time is up. Here are your results.'
       render_results
     else
       true

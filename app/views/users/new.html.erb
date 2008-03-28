@@ -18,6 +18,7 @@
 
   <% form_for :user, :url => users_path do |f| -%>
   <%= render :partial => 'user_name', :locals => { :f => f } %>
+  <%= render :partial => 'user_email', :locals => { :f => f } %>
   <%= render :partial => 'user_fields', :locals => { :f => f } %>
   <%= render :partial => 'password_fields', :locals => { :f => f } %>
   <div id="sign_up">
