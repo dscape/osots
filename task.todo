@@ -46,8 +46,8 @@
 ✓ More information on tables from xml document (in exams and questions)
 ✓ full ibm_db integration
 - Print diploma pdf-format
-- time is up for question not working at all
-- users that didnt respond to a question think they got it right!
+✓ time is up for question not working at all
+✓ users that didnt respond to a question think they got it right!
 - improve validation with xml schema
 - user id on xml document is not valid, should be auto-generated. maybe out of
   the xml document?
@@ -55,9 +55,12 @@
   be en-US- refactor code
 - create xml indexes on answers
 - bug fixes
-  - saving 3 users per create (cant replicate, bad database schema?)
+  ✓ saving 3 users per create (cant replicate, bad database schema?)
   - user can change login and email by accessor methods?
     find out and case its impossible to solve with only just hardcode taking
     values from hash in the controller.
   ✓ test time is up for exam
-  - test both
+  ✓ test both
+- refactor the code to improve
+- create a more flexible presentation for the exam
+  flashes are nice but they are being overused

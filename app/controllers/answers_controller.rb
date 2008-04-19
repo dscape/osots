@@ -7,6 +7,7 @@ class AnswersController < ApplicationController
   def new
     @question_id = (@exam_session.exam.questions.find :first,
                     :offset => (@exam_session.current_question - 1)).id
+  
     @exam_session.update_attribute(:updated_at, Time.now)
     
     @question = Question.find_by_id_and_return_xml_table(@question_id)
@@ -29,35 +30,23 @@ class AnswersController < ApplicationController
 
     @next_question_id = (@exam_session.exam.questions.find :first,
                     :offset => (@exam_session.current_question - 1))
+
     @next_question = Question.find_by_id_and_return_xml_table(@next_question_id.id) if @next_question_id
+ 
+    create_time_labels_for_flash 
+    
+    if question_time_is_defined? && question_time_has_passed?
+      flash[:warning] = 'Your answer was not considered. Time limit for the' +
+                        ' question passed!' + @finish_string + @time_question
+    else
+      # because it was incremented in (1)
+      Answers.create :exam_session_id => @exam_session.id, 
+                    :question_id => @question_id,
+                    :option => params[:answer]
 
-   if(!@question.minutes_allocated.nil? && @question.minutes_allocated > 0 && (@exam_session.updated_at + @question.minutes_allocated.minutes < Time.now) || @exam_session.exam.per_question != 0 && (@exam_session.updated_at + @exam_session.exam.per_question.minutes < Time.now))
-     flash[:warning] = 'Your answer was not considered. Time limit for the question passed!'
-     redirect_to current_question_path
-   else
-     # because it was incremented in (1)
-     Answers.create :exam_session_id => @exam_session.id, 
-                   :question_id => @question_id,
-                   :option => params[:answer]
-
-     @exam_session.exam.total_time == 0 ?
-       finish_string = "" :
-       finish_string = " Exam will end in<strong> " +
-                       "#{ActionView::Helpers::DateHelper.time_ago_in_words(@exam_session.created_at + @exam_session.exam.total_time.minutes,true)}" +
-                       "</strong>."
-
-    if(!@next_question.nil? && !@next_question.minutes_allocated.nil? && @next_question.minutes_allocated > 0) 
-      time_question = 
-      " You have <strong>#{@next_question.minutes_allocated}</strong> minutes for this question"
-    else 
-      @exam_session.exam.per_question == 0 ?
-        time_question = "" :
-        time_question = " You have <strong>#{@exam_session.exam.per_question}</strong> minutes for this question"
+      flash[:ok] = "Answer <strong>accepted</strong>." + @finish_string + @time_question
     end
-
-     flash[:ok] = "Answer <strong>accepted</strong>." + finish_string + time_question
-     redirect_to current_question_path
-   end
+    redirect_to current_question_path
   end
 
   protected
@@ -91,5 +80,51 @@ class AnswersController < ApplicationController
     # render results
     redirect_to result_path @exam_session.id
   end
+  
+  private
+  
+  def create_time_labels_for_flash
+       @exam_session.exam.total_time == 0 ?
+       @finish_string = "" :
+       @finish_string = " Exam will end in<strong> " +
+                       "#{ActionView::Helpers::DateHelper.time_ago_in_words(@exam_session.created_at +
+                        @exam_session.exam.total_time.minutes,true)}" +
+                       "</strong>."
 
+    if !@next_question.nil? && xml_question_time_is_defined?
+      @time_question = 
+      " You have <strong>#{@next_question.minutes_allocated}</strong>" +
+      " minutes for this question"
+    elsif relational_question_time_is_defined?
+      @time_question = " You have <strong>#{@exam_session.exam.per_question}" +
+                      "</strong> minutes for this question"
+    else
+      @time_question = ""
+    end
+  end
+  
+  def question_time_is_defined?
+    xml_question_time_is_defined? or relational_question_time_is_defined?
+  end
+  
+  def question_time_has_passed?
+    xml_question_time_has_passed? or relational_question_time_has_passed?
+  end
+
+  def xml_question_time_is_defined?
+    !@question.minutes_allocated.nil? &&
+     @question.minutes_allocated > 0
+  end
+  
+  def relational_question_time_is_defined?
+    @exam_session.exam.per_question != 0
+  end
+
+  def xml_question_time_has_passed?
+   (@exam_session.updated_at + @question.minutes_allocated.minutes) < Time.now
+  end
+  
+  def relational_question_time_has_passed?
+    (@exam_session.updated_at + @exam_session.exam.per_question.minutes) < Time.now
+  end
 end
