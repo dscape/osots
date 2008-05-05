@@ -93,7 +93,7 @@ dt {
    * NAVIGATION *
    **************/
   #nav {
-    background: #78f url('../images/ibm-logo.png') no-repeat center right;
+    background: #78f;
     margin-bottom: 1em;
     border-style: solid;
     border-width: 1px 1px 1px 1px;

@@ -48,6 +48,7 @@
 - Print diploma pdf-format
 ✓ time is up for question not working at all
 ✓ users that didnt respond to a question think they got it right!
+- add countries to user registration
 - improve validation with xml schema
 - user id on xml document is not valid, should be auto-generated. maybe out of
   the xml document?

@@ -6,10 +6,13 @@
 
 <% content_for :subcol do %>
     <h2>Help</h2>
-    <p>Your <em>username</em> must contain at least 3 digits.</p>
-    <p>Please provide a <em>password</em> longer of at least four digits.</p>
-    <p>Provide a <em>valid email</em> address. Invalid ones will be refused.</p>
-    <p>If you can't fix an error please inform our <%= link_to 'tech support', '#' %> to get help.</p>
+    <p>Your <em>User ID</em> be a valid email address as a confirmation email
+       will be sent to this address.</p>
+    <p>Your <em>Password</em> must have at least four characters.</p>
+    <p>Any field marked with a red asterisk (<font color="red">*</font>) 
+       must be completed.</p>
+    <p>For any problem completing this form, please 
+    <%= link_to 'contact us', '#' %>.</p>
 <% end %>
 
 <% # START: content %>
