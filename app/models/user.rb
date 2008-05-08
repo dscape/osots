@@ -24,15 +24,14 @@ class User < ActiveRecord::Base
   # validations                                                                #
   ##############################################################################
   # indexes: login, email
-  validates_presence_of     :login, :email
+  validates_presence_of     :login
                          #, :only => create
-  validates_length_of       :login,    :within => 3..40
+  validates_length_of       :login,    :within => 3..100
                          #, :only => create
-  validates_length_of       :email,    :within => 3..100
+
+  validates_uniqueness_of   :login, :case_sensitive => false
                          #, :only => create
-  validates_uniqueness_of   :login, :email, :case_sensitive => false
-                         #, :only => create
-  validates_format_of       :email, 
+  validates_format_of       :login, 
                             :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
                          #, :only => create
 

@@ -133,12 +133,16 @@ dt {
     clear: both;
   }
   
-    #maincol, #subcol {
+    #maincol, #subcol, #help {
       padding: 20px;
       overflow: hidden;
       margin-bottom: 1em;
     }
-    
+   
+    #help {
+      padding: 10px;
+    }
+ 
     #maincol {
       float: left;
       padding: 12px 16px;
@@ -159,10 +163,10 @@ dt {
     }
     
     #subcol .subnav li {
-      float: right;
-      text-align: center;
+      display: block;
+      text-align: left;
       padding: 5px 5px;
-      display: inline;
+
     }
   
   /* FOOTER */

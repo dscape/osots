@@ -5,4 +5,5 @@ tmp/**/*
 config/database.yml
 config/environment.rb
 config/initializers/mail.rb
+config/mailer.yml
 db/*.sqlite3

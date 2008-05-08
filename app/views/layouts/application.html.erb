@@ -23,9 +23,11 @@
      <%= content_tag :div, v, :id => k %>
     <% end %>
     <div id="content">
+     <%= yield :help %>
       <div id="subcol">
         <%= yield :subcol %>
       </div>
+     
       <div id="maincol">
         <%= yield %>
       </div>

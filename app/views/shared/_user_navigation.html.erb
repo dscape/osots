@@ -1,15 +1,15 @@
 <hr/>
 <ul class="subnav">
   <li class="subnav">
-    <%= link_to image_tag('door_out.png'), sign_out_path, :method => :delete %>
+    <%= link_to image_tag('user_go.png') + ' View Profile', user_path(current_user) %>
   </li>
   <li class="subnav">
-    <%= link_to image_tag('key_go.png'), change_password_user_path(current_user) %>
+    <%= link_to image_tag('key_go.png') + ' Change Password', change_password_user_path(current_user) %>
   </li>
   <li class="subnav">
-    <%= link_to image_tag('user_edit.png'), edit_user_path(current_user) %>
+    <%= link_to image_tag('user_edit.png') + ' Edit Profile', edit_user_path(current_user) %>
   </li>
   <li class="subnav">
-    <%= link_to image_tag('user_go.png'), user_path(current_user) %>
+    <%= link_to image_tag('door_out.png') + ' Sign out', sign_out_path, :method => :delete %>
   </li>
 </ul>
