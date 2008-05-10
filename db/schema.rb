@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 8) do
+ActiveRecord::Schema.define(:version => 10) do
 
   create_table "answers", :force => true do |t|
     t.integer   "exam_session_id"
@@ -39,6 +39,13 @@ ActiveRecord::Schema.define(:version => 8) do
   create_table "exams_questions", :id => false, :force => true do |t|
     t.integer   "exam_id"
     t.integer   "question_id"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+  end
+
+  create_table "organizations", :force => true do |t|
+    t.string    "name"
+    t.integer   "type_id"
     t.timestamp "created_at"
     t.timestamp "updated_at"
   end
@@ -102,6 +109,12 @@ ActiveRecord::Schema.define(:version => 8) do
     t.timestamp "updated_at"
   end
 
+  create_table "types", :force => true do |t|
+    t.string    "name"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+  end
+
   create_table "users", :force => true do |t|
     t.string    "first_name"
     t.string    "last_name"
@@ -121,6 +134,8 @@ ActiveRecord::Schema.define(:version => 8) do
     t.timestamp "deleted_at"
     t.timestamp "created_at"
     t.timestamp "updated_at"
+    t.integer   "type_id"
+    t.integer   "organization_id"
   end
 
   add_index "users", ["email"], :name => "users_on_email"

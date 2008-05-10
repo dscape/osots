@@ -1,6 +1,8 @@
 <% title 'Create your own profile' %>
 
 <% content_for :head do %>
+  <%= javascript_include_tag 'prototype' %>
+  <%= javascript_include_tag 'dynamic_organizations' %>
   <%= stylesheet_link_tag 'forms' %>
 <% end %>
 
@@ -23,6 +25,20 @@
   <%= render :partial => 'user_name', :locals => { :f => f } %>
   <%= render :partial => 'user_email', :locals => { :f => f } %>
   <%= render :partial => 'user_fields', :locals => { :f => f } %>
+
+  <p >
+    <label  for="user_type_id">&nbsp;You are</label><br/>
+    <%= f.collection_select :type_id, Type.find(:all), :id, :name,
+    :prompt => "Select a type"  %><font color="red">*</font>
+  </p>
+
+  <p id="organization_field" >
+    <label class="organization" for="user_organization_id">&nbsp;Organization</label><br/>
+    <%= f.collection_select :organization_id, Organization.find(:all), :id, 
+        :name, :prompt => "Select a organization" %>
+    <font color="red">*</font>
+  </p>
+  
   <%= render :partial => 'password_fields', :locals => { :f => f } %>
   <div id="sign_up">
     <%= submit_tag "Sign up" %> 

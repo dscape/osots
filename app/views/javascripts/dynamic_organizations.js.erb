@@ -1,0 +1,31 @@
+var organizations = new Array();
+
+<% @organizations.each do |organization| %>
+  organizations.push(
+    new Array(<%= organization.type_id %>, 
+      '<%= h organization.name %>',
+      <%= organization.id %>
+    )
+  );
+<% end %>
+
+function typeSelected() {
+  type_id = $('user_type_id').getValue();
+  options = $('user_organization_id').options;
+  options.length = 1;
+  organizations.each(function(organization) {
+    if (organization[0] == type_id) {
+      options[options.length] = new Option(organization[1], organization[2]);
+    }
+  });
+  if (options.length == 1) {
+    $('organization_field').hide();
+  } else {
+    $('organization_field').show();
+  }
+}
+
+document.observe('dom:loaded', function() {
+  typeSelected();
+  $('user_type_id').observe('change', typeSelected);
+});

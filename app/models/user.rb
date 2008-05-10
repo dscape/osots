@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   ##############################################################################
   # database relationships                                                     #
   ##############################################################################
+  belongs_to :organization
+  belongs_to :type
   has_and_belongs_to_many :roles
   has_many :exam_sessions
   has_many :results, :through => :exam_sessions
@@ -17,14 +19,14 @@ class User < ActiveRecord::Base
   ##############################################################################
   attr_accessor :password, :old_password
   attr_accessible :login, :email#, :only => create
-  attr_accessible :old_password, :password,
+  attr_accessible :old_password, :password, :type_id, :organization_id,
                   :password_confirmation, :name, :homepage, :about
 
   ##############################################################################
   # validations                                                                #
   ##############################################################################
   # indexes: login, email
-  validates_presence_of     :login
+  validates_presence_of     :login, :type_id, :organization_id
                          #, :only => create
   validates_length_of       :login,    :within => 3..100
                          #, :only => create

@@ -99,6 +99,7 @@ dt {
     border-width: 1px 1px 1px 1px;
     border-color: #89f #89f #89f #89f;
     height: 30px;
+    text-align: right;
   }
 
     /* NESTED ELEMS */

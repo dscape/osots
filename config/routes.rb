@@ -22,4 +22,6 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/current_question', :controller => 'answers', :action => 'create', 
                :conditions => { :method => :post }
   map.result '/result/:id', :controller => 'results', :action => 'show_or_create', :conditions => { :method => :get }
+  
+  map.connect ':controller/:action.:format'
 end
