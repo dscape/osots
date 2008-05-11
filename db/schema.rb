@@ -80,12 +80,14 @@ ActiveRecord::Schema.define(:version => 10) do
   end
 
   create_table "rights", :force => true do |t|
-    t.string    "name"
+    t.string    "name",       :limit => 40, :null => false
     t.string    "controller"
     t.string    "action"
     t.timestamp "created_at"
     t.timestamp "updated_at"
   end
+
+  add_index "rights", ["name"], :name => "rights_on_name"
 
   create_table "rights_roles", :id => false, :force => true do |t|
     t.integer   "right_id"
@@ -95,7 +97,7 @@ ActiveRecord::Schema.define(:version => 10) do
   end
 
   create_table "roles", :force => true do |t|
-    t.string    "name"
+    t.string    "name",       :limit => 40, :null => false
     t.timestamp "created_at"
     t.timestamp "updated_at"
   end
@@ -116,12 +118,13 @@ ActiveRecord::Schema.define(:version => 10) do
   end
 
   create_table "users", :force => true do |t|
-    t.string    "first_name"
-    t.string    "last_name"
+    t.string    "login",                     :limit => 40,                             :null => false
+    t.string    "email",                     :limit => 100,                            :null => false
+    t.string    "first_name",                :limit => 30
+    t.string    "last_name",                 :limit => 30
     t.text      "about",                     :limit => 1048576
-    t.string    "homepage"
-    t.string    "login"
-    t.string    "email"
+    t.string    "homepage",                  :limit => 125
+    t.string    "country",                   :limit => 3
     t.string    "crypted_password",          :limit => 40
     t.string    "salt",                      :limit => 40
     t.string    "remember_token"
@@ -130,7 +133,7 @@ ActiveRecord::Schema.define(:version => 10) do
     t.string    "activation_code",           :limit => 40
     t.string    "password_reset_code",       :limit => 40
     t.timestamp "activated_at"
-    t.string    "state",                                        :default => "passive"
+    t.string    "state",                     :limit => 30,      :default => "passive", :null => false
     t.timestamp "deleted_at"
     t.timestamp "created_at"
     t.timestamp "updated_at"

@@ -23,6 +23,8 @@ label {
    *********/
   .login { background: url('/images/user.png') no-repeat top left; }
   
+  .country { background: url('/images/flags/fam.png') no-repeat top left; }
+  
   .password { background: url('/images/key.png') no-repeat top left; }
   
   .old_password { background: url('/images/key_delete.png') no-repeat top left; }
@@ -46,6 +48,10 @@ label {
   .time_limit { background: url('/images/time.png') no-repeat top left; }
 
   .time_limit_per_question { background: url('/images/clock_red.png') no-repeat top left; }
+  
+  .type  { background: url('/images/group.png') no-repeat top left; }
+  
+  .organization { background: url('/images/building.png') no-repeat top left; }
 
 /******************
  * SPECIFIC ELEMS *

@@ -52,7 +52,7 @@ require 'yaml'
 yaml_lines << "array: ---\n"
 
 iso_famfamfam.each do |pair| 
-  yaml_lines << '- - ' + pair[0] + "\n  - " + pair[1] + "\n" # for each pair, create the yaml 
+  yaml_lines << '- - ' + pair[1] + "\n  - " + pair[0] + "\n" # for each pair, create the yaml 
 end                                              # representation and put in yaml_lines
 
 # put it in a file

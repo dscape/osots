@@ -240,483 +240,483 @@ hash:
   zw: Zimbabwe
   ax: Åland islands
 array: ---
-- - af
-  - Afghanistan
-- - al
-  - Albania
-- - dz
-  - Algeria
-- - as
-  - American samoa
-- - ad
-  - Andorra
-- - ao
-  - Angola
-- - ai
-  - Anguilla
-- - ag
-  - Antigua and barbuda
-- - ar
-  - Argentina
-- - am
-  - Armenia
-- - aw
-  - Aruba
-- - au
-  - Australia
-- - at
-  - Austria
-- - az
-  - Azerbaijan
-- - bs
-  - Bahamas
-- - bh
-  - Bahrain
-- - bd
-  - Bangladesh
-- - bb
-  - Barbados
-- - by
-  - Belarus
-- - be
-  - Belgium
-- - bz
-  - Belize
-- - bj
-  - Benin
-- - bm
-  - Bermuda
-- - bt
-  - Bhutan
-- - bo
-  - Bolivia
-- - ba
-  - Bosnia and herzegovina
-- - bw
-  - Botswana
-- - bv
-  - Bouvet island
-- - br
-  - Brazil
-- - io
-  - British indian ocean territory
-- - bn
-  - Brunei darussalam
-- - bg
-  - Bulgaria
-- - bf
-  - Burkina faso
-- - bi
-  - Burundi
-- - kh
-  - Cambodia
-- - cm
-  - Cameroon
-- - ca
-  - Canada
-- - cv
-  - Cape verde
-- - ky
-  - Cayman islands
-- - cf
-  - Central african republic
-- - td
-  - Chad
-- - cl
-  - Chile
-- - cn
-  - China
-- - cx
-  - Christmas island
-- - cc
-  - Cocos (keeling) islands
-- - co
-  - Colombia
-- - km
-  - Comoros
-- - cg
-  - Congo
-- - cd
-  - Congo, the democratic republic of the
-- - ck
-  - Cook islands
-- - cr
-  - Costa rica
-- - hr
-  - Croatia
-- - cu
-  - Cuba
-- - cy
-  - Cyprus
-- - cz
-  - Czech republic
-- - ci
-  - CÔte d'ivoire
-- - dk
-  - Denmark
-- - dj
-  - Djibouti
-- - dm
-  - Dominica
-- - do
-  - Dominican republic
-- - ec
-  - Ecuador
-- - eg
-  - Egypt
-- - sv
-  - El salvador
-- - gq
-  - Equatorial guinea
-- - er
-  - Eritrea
-- - ee
-  - Estonia
-- - et
-  - Ethiopia
-- - fk
-  - Falkland islands (malvinas)
-- - fo
-  - Faroe islands
-- - fj
-  - Fiji
-- - fi
-  - Finland
-- - fr
-  - France
-- - gf
-  - French guiana
-- - pf
-  - French polynesia
-- - tf
-  - French southern territories
-- - ga
-  - Gabon
-- - gm
-  - Gambia
-- - ge
-  - Georgia
-- - de
-  - Germany
-- - gh
-  - Ghana
-- - gi
-  - Gibraltar
-- - gr
-  - Greece
-- - gl
-  - Greenland
-- - gd
-  - Grenada
-- - gp
-  - Guadeloupe
-- - gu
-  - Guam
-- - gt
-  - Guatemala
-- - gn
-  - Guinea
-- - gw
-  - Guinea-bissau
-- - gy
-  - Guyana
-- - ht
-  - Haiti
-- - hm
-  - Heard island and mcdonald islands
-- - va
-  - Holy see (vatican city state)
-- - hn
-  - Honduras
-- - hk
-  - Hong kong
-- - hu
-  - Hungary
-- - is
-  - Iceland
-- - in
-  - India
-- - id
-  - Indonesia
-- - ir
-  - Iran, islamic republic of
-- - iq
-  - Iraq
-- - ie
-  - Ireland
-- - il
-  - Israel
-- - it
-  - Italy
-- - jm
-  - Jamaica
-- - jp
-  - Japan
-- - jo
-  - Jordan
-- - kz
-  - Kazakhstan
-- - ke
-  - Kenya
-- - ki
-  - Kiribati
-- - kp
-  - Korea, democratic people's republic of
-- - kr
-  - Korea, republic of
-- - kw
-  - Kuwait
-- - kg
-  - Kyrgyzstan
-- - la
-  - Lao people's democratic republic
-- - lv
-  - Latvia
-- - lb
-  - Lebanon
-- - ls
-  - Lesotho
-- - lr
-  - Liberia
-- - ly
-  - Libyan arab jamahiriya
-- - li
-  - Liechtenstein
-- - lt
-  - Lithuania
-- - lu
-  - Luxembourg
-- - mo
-  - Macao
-- - mk
-  - Macedonia, the former yugoslav republic of
-- - mg
-  - Madagascar
-- - mw
-  - Malawi
-- - my
-  - Malaysia
-- - mv
-  - Maldives
-- - ml
-  - Mali
-- - mt
-  - Malta
-- - mh
-  - Marshall islands
-- - mq
-  - Martinique
-- - mr
-  - Mauritania
-- - mu
-  - Mauritius
-- - yt
-  - Mayotte
-- - mx
-  - Mexico
-- - fm
-  - Micronesia, federated states of
-- - md
-  - Moldova, republic of
-- - mc
-  - Monaco
-- - mn
-  - Mongolia
-- - me
-  - Montenegro
-- - ms
-  - Montserrat
-- - ma
-  - Morocco
-- - mz
-  - Mozambique
-- - mm
-  - Myanmar
-- - na
-  - Namibia
-- - nr
-  - Nauru
-- - np
-  - Nepal
-- - nl
-  - Netherlands
-- - an
-  - Netherlands antilles
-- - nc
-  - New caledonia
-- - nz
-  - New zealand
-- - ni
-  - Nicaragua
-- - ne
-  - Niger
-- - ng
-  - Nigeria
-- - nu
-  - Niue
-- - nf
-  - Norfolk island
-- - mp
-  - Northern mariana islands
-- - no
-  - Norway
-- - om
-  - Oman
-- - pk
-  - Pakistan
-- - pw
-  - Palau
-- - ps
-  - Palestinian territory, occupied
-- - pa
-  - Panama
-- - pg
-  - Papua new guinea
-- - py
-  - Paraguay
-- - pe
-  - Peru
-- - ph
-  - Philippines
-- - pn
-  - Pitcairn
-- - pl
-  - Poland
-- - pt
-  - Portugal
-- - pr
-  - Puerto rico
-- - qa
-  - Qatar
-- - re
-  - Reunion
-- - ro
-  - Romania
-- - ru
-  - Russian federation
-- - rw
-  - Rwanda
-- - sh
-  - Saint helena
-- - kn
-  - Saint kitts and nevis
-- - lc
-  - Saint lucia
-- - pm
-  - Saint pierre and miquelon
-- - vc
-  - Saint vincent and the grenadines
-- - ws
-  - Samoa
-- - sm
-  - San marino
-- - st
-  - Sao tome and principe
-- - sa
-  - Saudi arabia
-- - sn
-  - Senegal
-- - rs
-  - Serbia
-- - sc
-  - Seychelles
-- - sl
-  - Sierra leone
-- - sg
-  - Singapore
-- - sk
-  - Slovakia
-- - si
-  - Slovenia
-- - sb
-  - Solomon islands
-- - so
-  - Somalia
-- - za
-  - South africa
-- - gs
-  - South georgia and the south sandwich islands
-- - es
-  - Spain
-- - lk
-  - Sri lanka
-- - sd
-  - Sudan
-- - sr
-  - Suriname
-- - sj
-  - Svalbard and jan mayen
-- - sz
-  - Swaziland
-- - se
-  - Sweden
-- - ch
-  - Switzerland
-- - sy
-  - Syrian arab republic
-- - tw
-  - Taiwan, province of china
-- - tj
-  - Tajikistan
-- - tz
-  - Tanzania, united republic of
-- - th
-  - Thailand
-- - tl
-  - Timor-leste
-- - tg
-  - Togo
-- - tk
-  - Tokelau
-- - to
-  - Tonga
-- - tt
-  - Trinidad and tobago
-- - tn
-  - Tunisia
-- - tr
-  - Turkey
-- - tm
-  - Turkmenistan
-- - tc
-  - Turks and caicos islands
-- - tv
-  - Tuvalu
-- - ug
-  - Uganda
-- - ua
-  - Ukraine
-- - ae
-  - United arab emirates
-- - gb
-  - United kingdom
-- - us
-  - United states
-- - um
-  - United states minor outlying islands
-- - uy
-  - Uruguay
-- - uz
-  - Uzbekistan
-- - vu
-  - Vanuatu
-- - ve
-  - Venezuela
-- - vn
-  - Viet nam
-- - vg
-  - Virgin islands, british
-- - vi
-  - Virgin islands, u.s.
-- - wf
-  - Wallis and futuna
-- - eh
-  - Western sahara
-- - ye
-  - Yemen
-- - zm
-  - Zambia
-- - zw
-  - Zimbabwe
-- - ax
-  - Åland islands
+- - Afghanistan
+  - af
+- - Albania
+  - al
+- - Algeria
+  - dz
+- - American samoa
+  - as
+- - Andorra
+  - ad
+- - Angola
+  - ao
+- - Anguilla
+  - ai
+- - Antigua and barbuda
+  - ag
+- - Argentina
+  - ar
+- - Armenia
+  - am
+- - Aruba
+  - aw
+- - Australia
+  - au
+- - Austria
+  - at
+- - Azerbaijan
+  - az
+- - Bahamas
+  - bs
+- - Bahrain
+  - bh
+- - Bangladesh
+  - bd
+- - Barbados
+  - bb
+- - Belarus
+  - by
+- - Belgium
+  - be
+- - Belize
+  - bz
+- - Benin
+  - bj
+- - Bermuda
+  - bm
+- - Bhutan
+  - bt
+- - Bolivia
+  - bo
+- - Bosnia and herzegovina
+  - ba
+- - Botswana
+  - bw
+- - Bouvet island
+  - bv
+- - Brazil
+  - br
+- - British indian ocean territory
+  - io
+- - Brunei darussalam
+  - bn
+- - Bulgaria
+  - bg
+- - Burkina faso
+  - bf
+- - Burundi
+  - bi
+- - Cambodia
+  - kh
+- - Cameroon
+  - cm
+- - Canada
+  - ca
+- - Cape verde
+  - cv
+- - Cayman islands
+  - ky
+- - Central african republic
+  - cf
+- - Chad
+  - td
+- - Chile
+  - cl
+- - China
+  - cn
+- - Christmas island
+  - cx
+- - Cocos (keeling) islands
+  - cc
+- - Colombia
+  - co
+- - Comoros
+  - km
+- - Congo
+  - cg
+- - Congo, the democratic republic of the
+  - cd
+- - Cook islands
+  - ck
+- - Costa rica
+  - cr
+- - Croatia
+  - hr
+- - Cuba
+  - cu
+- - Cyprus
+  - cy
+- - Czech republic
+  - cz
+- - CÔte d'ivoire
+  - ci
+- - Denmark
+  - dk
+- - Djibouti
+  - dj
+- - Dominica
+  - dm
+- - Dominican republic
+  - do
+- - Ecuador
+  - ec
+- - Egypt
+  - eg
+- - El salvador
+  - sv
+- - Equatorial guinea
+  - gq
+- - Eritrea
+  - er
+- - Estonia
+  - ee
+- - Ethiopia
+  - et
+- - Falkland islands (malvinas)
+  - fk
+- - Faroe islands
+  - fo
+- - Fiji
+  - fj
+- - Finland
+  - fi
+- - France
+  - fr
+- - French guiana
+  - gf
+- - French polynesia
+  - pf
+- - French southern territories
+  - tf
+- - Gabon
+  - ga
+- - Gambia
+  - gm
+- - Georgia
+  - ge
+- - Germany
+  - de
+- - Ghana
+  - gh
+- - Gibraltar
+  - gi
+- - Greece
+  - gr
+- - Greenland
+  - gl
+- - Grenada
+  - gd
+- - Guadeloupe
+  - gp
+- - Guam
+  - gu
+- - Guatemala
+  - gt
+- - Guinea
+  - gn
+- - Guinea-bissau
+  - gw
+- - Guyana
+  - gy
+- - Haiti
+  - ht
+- - Heard island and mcdonald islands
+  - hm
+- - Holy see (vatican city state)
+  - va
+- - Honduras
+  - hn
+- - Hong kong
+  - hk
+- - Hungary
+  - hu
+- - Iceland
+  - is
+- - India
+  - in
+- - Indonesia
+  - id
+- - Iran, islamic republic of
+  - ir
+- - Iraq
+  - iq
+- - Ireland
+  - ie
+- - Israel
+  - il
+- - Italy
+  - it
+- - Jamaica
+  - jm
+- - Japan
+  - jp
+- - Jordan
+  - jo
+- - Kazakhstan
+  - kz
+- - Kenya
+  - ke
+- - Kiribati
+  - ki
+- - Korea, democratic people's republic of
+  - kp
+- - Korea, republic of
+  - kr
+- - Kuwait
+  - kw
+- - Kyrgyzstan
+  - kg
+- - Lao people's democratic republic
+  - la
+- - Latvia
+  - lv
+- - Lebanon
+  - lb
+- - Lesotho
+  - ls
+- - Liberia
+  - lr
+- - Libyan arab jamahiriya
+  - ly
+- - Liechtenstein
+  - li
+- - Lithuania
+  - lt
+- - Luxembourg
+  - lu
+- - Macao
+  - mo
+- - Macedonia, the former yugoslav republic of
+  - mk
+- - Madagascar
+  - mg
+- - Malawi
+  - mw
+- - Malaysia
+  - my
+- - Maldives
+  - mv
+- - Mali
+  - ml
+- - Malta
+  - mt
+- - Marshall islands
+  - mh
+- - Martinique
+  - mq
+- - Mauritania
+  - mr
+- - Mauritius
+  - mu
+- - Mayotte
+  - yt
+- - Mexico
+  - mx
+- - Micronesia, federated states of
+  - fm
+- - Moldova, republic of
+  - md
+- - Monaco
+  - mc
+- - Mongolia
+  - mn
+- - Montenegro
+  - me
+- - Montserrat
+  - ms
+- - Morocco
+  - ma
+- - Mozambique
+  - mz
+- - Myanmar
+  - mm
+- - Namibia
+  - na
+- - Nauru
+  - nr
+- - Nepal
+  - np
+- - Netherlands
+  - nl
+- - Netherlands antilles
+  - an
+- - New caledonia
+  - nc
+- - New zealand
+  - nz
+- - Nicaragua
+  - ni
+- - Niger
+  - ne
+- - Nigeria
+  - ng
+- - Niue
+  - nu
+- - Norfolk island
+  - nf
+- - Northern mariana islands
+  - mp
+- - Norway
+  - no
+- - Oman
+  - om
+- - Pakistan
+  - pk
+- - Palau
+  - pw
+- - Palestinian territory, occupied
+  - ps
+- - Panama
+  - pa
+- - Papua new guinea
+  - pg
+- - Paraguay
+  - py
+- - Peru
+  - pe
+- - Philippines
+  - ph
+- - Pitcairn
+  - pn
+- - Poland
+  - pl
+- - Portugal
+  - pt
+- - Puerto rico
+  - pr
+- - Qatar
+  - qa
+- - Reunion
+  - re
+- - Romania
+  - ro
+- - Russian federation
+  - ru
+- - Rwanda
+  - rw
+- - Saint helena
+  - sh
+- - Saint kitts and nevis
+  - kn
+- - Saint lucia
+  - lc
+- - Saint pierre and miquelon
+  - pm
+- - Saint vincent and the grenadines
+  - vc
+- - Samoa
+  - ws
+- - San marino
+  - sm
+- - Sao tome and principe
+  - st
+- - Saudi arabia
+  - sa
+- - Senegal
+  - sn
+- - Serbia
+  - rs
+- - Seychelles
+  - sc
+- - Sierra leone
+  - sl
+- - Singapore
+  - sg
+- - Slovakia
+  - sk
+- - Slovenia
+  - si
+- - Solomon islands
+  - sb
+- - Somalia
+  - so
+- - South africa
+  - za
+- - South georgia and the south sandwich islands
+  - gs
+- - Spain
+  - es
+- - Sri lanka
+  - lk
+- - Sudan
+  - sd
+- - Suriname
+  - sr
+- - Svalbard and jan mayen
+  - sj
+- - Swaziland
+  - sz
+- - Sweden
+  - se
+- - Switzerland
+  - ch
+- - Syrian arab republic
+  - sy
+- - Taiwan, province of china
+  - tw
+- - Tajikistan
+  - tj
+- - Tanzania, united republic of
+  - tz
+- - Thailand
+  - th
+- - Timor-leste
+  - tl
+- - Togo
+  - tg
+- - Tokelau
+  - tk
+- - Tonga
+  - to
+- - Trinidad and tobago
+  - tt
+- - Tunisia
+  - tn
+- - Turkey
+  - tr
+- - Turkmenistan
+  - tm
+- - Turks and caicos islands
+  - tc
+- - Tuvalu
+  - tv
+- - Uganda
+  - ug
+- - Ukraine
+  - ua
+- - United arab emirates
+  - ae
+- - United kingdom
+  - gb
+- - United states
+  - us
+- - United states minor outlying islands
+  - um
+- - Uruguay
+  - uy
+- - Uzbekistan
+  - uz
+- - Vanuatu
+  - vu
+- - Venezuela
+  - ve
+- - Viet nam
+  - vn
+- - Virgin islands, british
+  - vg
+- - Virgin islands, u.s.
+  - vi
+- - Wallis and futuna
+  - wf
+- - Western sahara
+  - eh
+- - Yemen
+  - ye
+- - Zambia
+  - zm
+- - Zimbabwe
+  - zw
+- - Åland islands
+  - ax

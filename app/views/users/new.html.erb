@@ -25,20 +25,28 @@
   <%= render :partial => 'user_name', :locals => { :f => f } %>
   <%= render :partial => 'user_email', :locals => { :f => f } %>
   <%= render :partial => 'user_fields', :locals => { :f => f } %>
-
-  <p >
-    <label  for="user_type_id">&nbsp;You are</label><br/>
+  
+  <div id="country" class="field">
+    <label class="country" for="country">Country</label><br/>
+    <%= select_tag 'user[country]', options_for_select(COUNTRIES['array']) %>
+  </div>
+  
+  <div id="type" class="field">
+  <p>
+    <label class="type" for="user_type_id">&nbsp;You are</label><br/>
     <%= f.collection_select :type_id, Type.find(:all), :id, :name,
     :prompt => "Select a type"  %><font color="red">*</font>
   </p>
+  </div>
 
+  <div id="organization" class="field">
   <p id="organization_field" >
     <label class="organization" for="user_organization_id">&nbsp;Organization</label><br/>
     <%= f.collection_select :organization_id, Organization.find(:all), :id, 
         :name, :prompt => "Select a organization" %>
     <font color="red">*</font>
   </p>
-  
+  </div>  
   <%= render :partial => 'password_fields', :locals => { :f => f } %>
   <div id="sign_up">
     <%= submit_tag "Sign up" %> 

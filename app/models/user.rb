@@ -20,13 +20,13 @@ class User < ActiveRecord::Base
   attr_accessor :password, :old_password
   attr_accessible :login, :email#, :only => create
   attr_accessible :old_password, :password, :type_id, :organization_id,
-                  :password_confirmation, :name, :homepage, :about
+                  :password_confirmation, :name, :homepage, :about, :country
 
   ##############################################################################
   # validations                                                                #
   ##############################################################################
   # indexes: login, email
-  validates_presence_of     :login, :type_id, :organization_id
+  validates_presence_of     :login, :type_id, :country
                          #, :only => create
   validates_length_of       :login,    :within => 3..100
                          #, :only => create

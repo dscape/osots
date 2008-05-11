@@ -11,12 +11,12 @@ class CreateUsers < ActiveRecord::Migration
     # create: users table                                                      #
     ############################################################################
     create_table :users do |t|
-      t.string   :login,                        :limit => 40,  :null => false
-      t.string   :email,                        :limit => 100, :null => false
+      t.string   :login,                        :limit => 100,  :null => false
       t.string   :first_name,                   :limit => 30 
       t.string   :last_name,                    :limit => 30
       t.text     :about
       t.string   :homepage,                     :limit => 125
+      t.string   :country,                      :limit => 3,    :null => false
       t.string   :crypted_password,             :limit => 40
       t.string   :salt,                         :limit => 40
       t.string   :remember_token
