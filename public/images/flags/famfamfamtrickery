@@ -1,27 +1,67 @@
-famfamfam icons in ruby
-cd iconset
-ls > file
+famfamfam flag iconset yaml representation on ruby
+
+First download the flags from famfamfam into a folder called flags (pngs only,
+no subfolders!). 
+
+Now:
+
+## In the Bash ##
+cd flags
+wget http://www.iso.org/iso/iso3166_en_code_lists.txt
+ls > file.txt
 irb
-f = File.new 'file'
-lines = f.readlines
-lines = lines.select { |line| line.size == 7 }
-lines = lines.map { |line| line[0..1] }
 
-copy file http://www.iso.org/iso/iso3166_en_code_lists.txt
-to a new file called iso.txt
+## In IRB ##
 
-f = File.new 'iso.txt'
-f.readline # get rid of the notes
-iso = f.readlines
+# If you want to use this as a script just copy the bash lines and put them as
+# system 'cd flags'
+# system 'wget ..." and so on
 
-hashed_iso = {}
+# We start treating the output from the ls
+f = File.new 'file.txt'                            # open the ls output
+lines = f.readlines                                # place the file in lines
+lines = lines.select { |line| line.size == 7 }     # map those who have 2 digits codes
+lines = lines.map { |line| line[0..1] }            # get the 2 digits
+f.close
 
-iso.select { |a| !a.rstrip.empty? }.map do |b| 
-  aux = b.rstrip.split ';' 
-  hashed_iso[aux[1].downcase] = aux[0].capitalize
+# Then the iso file
+f = File.new 'iso3166_en_code_lists.txt'           # open the iso file
+f.readline                                         # get rid of the notes
+iso = f.readlines                                  # place the file in iso
+hashed_iso = {}                                    # create a new hash
+iso.select { |a| !a.rstrip.empty? }.map do |b|     # select non empty lines
+  aux = b.rstrip.split ';'                         # remove the whitespaces and split in ';'
+  hashed_iso[aux[1].downcase] = aux[0].capitalize  # place info in the hash
 end
+f.close
 
-#need to take care of base64
+# Now we cross information giving more importance to what's in the iso.                         
+iso_famfamfam = hashed_iso.select {                
+  |k,v| lines.member? k                            # select those who have flags in famfamfam
+}.sort_by {                                        
+  |pair| pair[1]                                   # sort them by the name the user will see
+}
 
-iso_famfamfam = hashed_iso.select { |k,v| lines.member? k }
+# Now we create the contents to store in the yaml file
+yaml_lines = "hash: \n"                           # create the yaml first line
+iso_famfamfam.each do |pair| 
+  yaml_lines << '  ' + pair[0] + ': ' + pair[1] + "\n"    # for each pair, create the yaml 
+end                                              # representation and put in yaml_lines
+
+require 'yaml'
+yaml_lines << "array: ---\n"
+
+iso_famfamfam.each do |pair| 
+  yaml_lines << '- - ' + pair[0] + "\n  - " + pair[1] + "\n" # for each pair, create the yaml 
+end                                              # representation and put in yaml_lines
+
+# put it in a file
+f = File.new 'flags.yml', 'w'
+f.write yaml_lines
+f.close
+
+#sample for loading the yaml into ruby
+f = File.new 'flags.yml'
+fy = YAML.load f
+
 

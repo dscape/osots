@@ -68,8 +68,9 @@ er.png
 es.png
 et.png
 europeanunion.png
+famfamfamtrickery
+file.txt
 fi.png
-file
 fj.png
 fk.png
 fm.png
@@ -106,6 +107,7 @@ in.png
 io.png
 iq.png
 ir.png
+iso3166_en_code_lists.txt
 is.png
 it.png
 jm.png
@@ -190,8 +192,8 @@ ru.png
 rw.png
 sa.png
 sb.png
-sc.png
 scotland.png
+sc.png
 sd.png
 se.png
 sg.png
